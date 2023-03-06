@@ -14,7 +14,8 @@
 This repository contains code developed at 42 Porto for so_long Project, from ... to ...
 </p>
 
-<h2 align="left">
+<img src="https://github.com/lbordonal/lbordonal/blob/main/.42_badges/so_longe.png" align="right" />
+<h2>
 	 :notebook: Subject
 </h2>
 <a href="https://github.com/lbordonal/02-so_long/blob/main/Subject/en.subject.pdf">Click here</a> for the subject of this project.
