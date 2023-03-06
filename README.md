@@ -1,13 +1,13 @@
-<h1 align="center">
-	42-Cursus - so_long
-</h1>
+<p align="center">
+  <img src="https://github.com/lbordonal/lbordonal/blob/main/.images/42_Cursus_-_so_long.png">
+</p>
 
 <p align="center">
-	<img src="https://img.shields.io/badge/score-not%20submitted-red" />
-	<img src="https://img.shields.io/github/languages/code-size/lbordonal/02-so_long" />
-	<img src="https://img.shields.io/github/languages/count/lbordonal/02-so_long" />
-	<img src="https://img.shields.io/github/languages/top/lbordonal/02-so_long" />
-	<img src="https://img.shields.io/github/last-commit/lbordonal/02-so_long" />
+	<img src="https://img.shields.io/badge/score-not%20submitted-red?style=for-the-badge" />
+	<img src="https://img.shields.io/github/languages/code-size/lbordonal/02-so_long?style=for-the-badge" />
+	<img src="https://img.shields.io/github/languages/count/lbordonal/02-so_long?style=for-the-badge" />
+	<img src="https://img.shields.io/github/languages/top/lbordonal/02-so_long?style=for-the-badge" />
+	<img src="https://img.shields.io/github/last-commit/lbordonal/02-so_long?style=for-the-badge" />
 </p>
 
 <p align="center">
