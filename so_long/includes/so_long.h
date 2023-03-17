@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2022/12/22 12:33:37 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:31:13 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
+# include <X11/X.h>
 
 #endif

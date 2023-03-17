@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_str_is_digit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 01:14:17 by lbordona          #+#    #+#             */
-/*   Updated: 2023/01/18 15:53:06 by lbordona         ###   ########.fr       */
+/*   Created: 2023/02/25 15:50:33 by lbordona          #+#    #+#             */
+/*   Updated: 2023/02/25 15:52:47 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	ft_str_is_digit(char *str)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
-}
+	int	i;
 
-void	ft_delete(void *data)
-{
-	if (data != NULL)
-		free (data);
+	i = 0;
+	if (str[i] == 43 || str[i] == 45)
+		i++;
+	while (str[i] != '\0')
+	{
+		if (str[i] < 48 || str[i] > 57)
+			return (0);
+		i++;
+	}
+	if ((str[0] == 43 || str[0] == 45) && i == 1)
+		return (0);
+	return (1);
 }

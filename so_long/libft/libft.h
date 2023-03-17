@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:34:15 by lbordona          #+#    #+#             */
-/*   Updated: 2022/12/21 13:30:26 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/03/17 19:52:47 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,28 @@
 # include <ctype.h>
 # include <stdarg.h>
 # include <stdint.h>
+# include <fcntl.h>
+# include <limits.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_stack
+{
+	int			*stack;
+	int			*index;
+	int			len;
+	int			bottom;
+	int			top;
+	int			mid;
+}				t_stack;
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
@@ -41,6 +57,7 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
+int		ft_isdigitorsignal(char c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
@@ -61,6 +78,10 @@ int		ft_putptr_count(unsigned long long ptr);
 int		ft_ptrlen(uintptr_t ptr);
 int		ft_putpercent(void);
 int		ft_isstringdigit(char *string);
+int		ft_checkstack(t_stack *stack);
+int		ft_str_is_digit(char *str);
+
+long	ft_atol(const char *str);
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -78,10 +99,14 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_delete(void *data);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_puthex(unsigned int n, const char type);
 void	ft_putptr(uintptr_t ptr);
+void	ft_printlist(t_list *list);
+void	ft_printstack(t_stack *stack_a);
+void	ft_swap(int *a, int *b);
 
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strdup(const char *s);
@@ -92,5 +117,9 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_uitoa(unsigned int n);
+char	*get_next_line(int fd);
+char	*read_and_save(int fd, char *save);
+char	*get_line(char *save);
+char	*ft_save(char *save);
 
 #endif

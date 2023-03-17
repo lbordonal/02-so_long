@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 01:14:17 by lbordona          #+#    #+#             */
-/*   Updated: 2023/01/18 15:53:06 by lbordona         ###   ########.fr       */
+/*   Created: 2023/03/17 19:51:03 by lbordona          #+#    #+#             */
+/*   Updated: 2023/03/17 19:52:16 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_swap(int *a, int *b)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
-}
+	int	temp;
 
-void	ft_delete(void *data)
-{
-	if (data != NULL)
-		free (data);
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

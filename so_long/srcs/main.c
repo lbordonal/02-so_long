@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 01:14:17 by lbordona          #+#    #+#             */
-/*   Updated: 2023/01/18 15:53:06 by lbordona         ###   ########.fr       */
+/*   Created: 2022/12/22 12:31:17 by lbordona          #+#    #+#             */
+/*   Updated: 2023/03/17 21:07:21 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	main(void)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
-}
+	void	*mlx_ptr;
+	void	*win_ptr;
 
-void	ft_delete(void *data)
-{
-	if (data != NULL)
-		free (data);
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, 800, 600, "Minha janela");
+
+	mlx_pixel_put(mlx_ptr, win_ptr, 50, 50, 0x0FAE1);
+
+	mlx_loop(mlx_ptr);
+
+	return (0);
 }
