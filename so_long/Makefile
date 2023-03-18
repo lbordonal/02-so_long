@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 12:24:12 by lbordona          #+#    #+#              #
-#    Updated: 2023/03/17 21:08:13 by lbordona         ###   ########.fr        #
+#    Updated: 2023/03/17 23:39:48 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ NAME = so_long
 
 MLXDIR = ./minilibx-linux/
 
-SRCS = srcs/main.c
+SRCS = srcs/main.c \
+	srcs/window_and_images.c \
+	srcs/colors.c \
+	srcs/forms.c
 
 OBJS = $(SRCS:.c=.o)
 
