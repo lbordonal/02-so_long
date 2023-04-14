@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/badge/score-not%20submitted-red?style=for-the-badge" />
-	<img src="https://img.shields.io/github/languages/code-size/lbordonal/02-so_long?style=for-the-badge" />
-	<img src="https://img.shields.io/github/languages/count/lbordonal/02-so_long?style=for-the-badge" />
-	<img src="https://img.shields.io/github/languages/top/lbordonal/02-so_long?style=for-the-badge" />
-	<img src="https://img.shields.io/github/last-commit/lbordonal/02-so_long?style=for-the-badge" />
+	<img src="https://img.shields.io/badge/score-not%20submitted-red?style=flat-square" />
+	<img src="https://img.shields.io/github/languages/code-size/lbordonal/02-so_long?style=flat-square" />
+	<img src="https://img.shields.io/github/languages/count/lbordonal/02-so_long?style=flat-square" />
+	<img src="https://img.shields.io/github/languages/top/lbordonal/02-so_long?style=flat-square" />
+	<img src="https://img.shields.io/github/last-commit/lbordonal/02-so_long?style=flat-square" />
 </p>
 
 <p align="center">
@@ -26,5 +26,5 @@ This repository contains code developed at 42 Porto for so_long Project, from ..
 <br />
 <hr/>
 <p align="center">
-This work is published under the terms of <a href="https://github.com/gcamerli/42unlicense">42 Unlicense</a>. 
+This work is published under the terms of <a href="https://github.com/gcamerli/42unlicense">42 Unlicense</a>.
 </p>
