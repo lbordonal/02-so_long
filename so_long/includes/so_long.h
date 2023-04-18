@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/03/17 23:40:37 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/18 12:56:13 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,50 +16,30 @@
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
+# include <X11/keysym.h>
 
-typedef struct s_window
+# ifndef MLX_ERROR
+#  define MLX_ERROR 1
+# endif
+
+# ifndef WIDTH
+#  define WIDTH 600
+# endif
+
+# ifndef HEIGHT
+#  define HEIGHT 600
+# endif
+
+typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	int		height;
-	int		width;
-}		t_window;
+}	t_data;
 
-typedef struct s_img
-{
-	t_window	*win;
-	void		*img_ptr;
-	char		*addr;
-	int			h;
-	int			w;
-	int			bpp;
-	int			endian;
-	int			line_len;
-}		t_img;
+/* main.c: */
 
-/* forms structure: */
-typedef struct s_square {
-	unsigned short int	x;
-	unsigned short int	y;
-	unsigned short int	size;
-	int					color;
-}		t_square;
-
-
-/* window_and_images.c: */
-void		put_pixel_img(t_img *img, int x, int y, int color);
-t_img		*new_image(t_window *win, int height, int width);
-t_window	*new_window(int height, int width, char *str);
-
-/* colors.c: */
-int			create_trgb(int t, int r, int g, int b);
-int			get_t(int trgb);
-int			get_r(int trgb);
-int			get_g(int trgb);
-int			get_b(int trgb);
-
-/* forms.c: */
-void		draw_square(t_square square, t_img *img);
-
+/* events.c: */
+int		handle_no_event(void *data);
+int		handle_input(int key, t_data *data);
 
 #endif

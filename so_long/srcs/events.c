@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.c                                           :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 23:32:15 by lbordona          #+#    #+#             */
-/*   Updated: 2023/03/17 23:39:50 by lbordona         ###   ########.fr       */
+/*   Created: 2023/04/18 12:46:54 by lbordona          #+#    #+#             */
+/*   Updated: 2023/04/18 12:57:54 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	create_trgb(int t, int r, int g, int b)
+int	handle_no_event(void *data)
 {
-	return (t << 24 | r << 16 | g << 8 | b);
+	(void)data;
+	return (0);
 }
 
-int	get_t(int trgb)
+int	handle_input(int key, t_data *data)
 {
-	return ((trgb >> 24) & 0xFF);
-}
-
-int	get_r(int trgb)
-{
-	return ((trgb >> 16) & 0xFF);
-}
-
-int	get_g(int trgb)
-{
-	return ((trgb >> 8) & 0xFF);
-}
-
-int	get_b(int trgb)
-{
-	return (trgb & 0xFF);
+	if(key == XK_Escape)
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	return (0);
 }

@@ -5,45 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 12:31:17 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/18 10:10:08 by lbordona         ###   ########.fr       */
+/*   Created: 2023/04/18 12:20:47 by lbordona          #+#    #+#             */
+/*   Updated: 2023/04/18 12:55:16 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include <stdio.h>
 
 int	main(void)
 {
-	t_window	*win;
-	t_img		*img;
-	t_square	square;
+	t_data	data;
 
-	/* criar janela: */
-	win = new_window(400, 400, "Teste");
-	if (!win)
-		return (-1);
+	/* setup window: */
+	data.mlx_ptr = mlx_init();
+	if (data.mlx_ptr == NULL)
+		return (MLX_ERROR);
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "so_long");
+	if (data.win_ptr == NULL)
+	{
+		free(data.win_ptr);
+		return (MLX_ERROR);
+	}
 
-	/* criar imagem: */
-	img = new_image(win, 400, 400);
-	if (!img)
-		return (-1);
-	printf("Created an image with [%d x %d]\n", img->w, img->h);
+	/* setup hooks: */
+	mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
+	mlx_key_hook(data.win_ptr, &handle_input, &data);
 
+	mlx_loop(data.mlx_ptr);
 
-	/* criar quadrado: */
-	square = (t_square){0, 0, 200, create_trgb(0, 153, 51, 255)};
-	draw_square(square, img);
-
-	/* colocar quadrado dentro da imagem: */
-	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, img->img_ptr, 100, 100);
-	printf("Created an square inside the image with [%d x %d]\n", square.size, square.size);
-
-	/* loop para não fechar a janela--: */
-	mlx_loop(win->mlx_ptr);
-
-	/* free: */
-	free(win);
-	free(img);
-	return (0);
+	mlx_destroy_display(data.mlx_ptr);
+	free(data.mlx_ptr);
 }
