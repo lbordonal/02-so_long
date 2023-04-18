@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:20:47 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/18 12:55:16 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:10:46 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(void)
 
 	/* setup hooks: */
 	mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
-	mlx_key_hook(data.win_ptr, &handle_input, &data);
+
+	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data); //key press
 
 	mlx_loop(data.mlx_ptr);
 
