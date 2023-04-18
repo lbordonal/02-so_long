@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/18 15:29:05 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/18 19:33:02 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 #  define GREEN_PIXEL 0x00FF00
 # endif
 
+# ifndef BLUE_PIXEL
+#  define BLUE_PIXEL 0x0000FF
+# endif
+
 # ifndef MLX_ERROR
 #  define MLX_ERROR 1
 # endif
@@ -42,7 +46,17 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	t_img	img;
 }	t_data;
+
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;/* bits per pixel */
+	int		line_len;
+	int		endian;
+}	t_img;
 
 typedef struct s_rectangle
 {
@@ -60,5 +74,6 @@ int		handle_no_event(void *data);
 int		handle_keypress(int key, t_data *data); //what is done when I press a key
 int		render(t_data *data); //draw a pixel
 int		render_rectangle(t_data *data, t_rectangle rectangle); //draw a rectangle
+void	render_background(t_data *data, int color); //coloring background
 
 #endif
