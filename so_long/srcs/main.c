@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:17 by lbordona          #+#    #+#             */
-/*   Updated: 2023/03/18 00:11:12 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/18 10:10:08 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(void)
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, img->img_ptr, 100, 100);
 	printf("Created an square inside the image with [%d x %d]\n", square.size, square.size);
 
-	/* loop para não fechar a janela: */
+	/* loop para não fechar a janela--: */
 	mlx_loop(win->mlx_ptr);
 
 	/* free: */
