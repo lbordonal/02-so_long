@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/19 18:19:07 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:34:35 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,29 @@
 # ifndef HEIGHT
 #  define HEIGHT 300
 # endif
+
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+	char	**map;
+	void	*img_background;
+	void	*img_wall;
+	void	*img_player;
+	void	*img_collect;
+	void	*img_exit;
+	int		map_width;
+	int		map_heigth;
+	int		img_width;
+	int		img_height;
+	int		n_collect;
+	int		n_player;
+	int		n_exit;
+	int		player_x;
+	int		player_y;
+	int		moves;
+	int		endgame;
+}	t_game;
 
 typedef struct s_img
 {
