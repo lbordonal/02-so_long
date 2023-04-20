@@ -6,11 +6,28 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:15:41 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 19:10:26 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 00:39:43 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+static void	player_update(char key, t_game *game)
+{
+	mlx_destroy_image(game->mlx, game->img_player);
+	if (key == XK_w)
+		game->img_player = mlx_xpm_file_to_image
+			(game->mlx, PLAYER_W, &game->img_width, &game->img_height);
+	else if (key == XK_s)
+		game->img_player = mlx_xpm_file_to_image
+			(game->mlx, PLAYER_S, &game->img_width, &game->img_height);
+	else if (key == XK_a)
+		game->img_player = mlx_xpm_file_to_image
+			(game->mlx, PLAYER_A, &game->img_width, &game->img_height);
+	else if (key == XK_d)
+		game->img_player = mlx_xpm_file_to_image
+			(game->mlx, PLAYER_D, &game->img_width, &game->img_height);
+}
 
 void	player_move_w(t_game *game)
 {
@@ -68,7 +85,7 @@ void	player_move_s(t_game *game)
 
 void	player_move_a(t_game *game)
 {
-	player_update(XK_a, game);
+	player_update('a', game);
 	if (game->map[game->player_y][game->player_x] == 'E'
 			&& game->n_collect == 0)
 	{
@@ -95,7 +112,7 @@ void	player_move_a(t_game *game)
 
 void	player_move_d(t_game *game)
 {
-	player_update(XK_d, game);
+	player_update('d', game);
 	if (game->map[game->player_y][game->player_x] == 'E'
 			&& game->n_collect == 0)
 	{
@@ -112,27 +129,10 @@ void	player_move_d(t_game *game)
 	{
 		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->player_y][game->player_x] == 'C')
-				game->n_collect -= 1;
+			game->n_collect -= 1;
 		game->map[game->player_y][game->player_x] = 'P';
 		game->map[game->player_y][game->player_x - 1] = '0';
 		game->moves++;
 		draw_map(game);
 	}
-}
-
-void	player_update(char key, t_game *game)
-{
-	mlx_destroy_image(game->mlx, game->img_player);
-	if (key == XK_w)
-		game->img_player = mlx_xpm_file_to_image
-			(game->mlx, PLAYER_W, &game->img_width, &game->img_height);
-	else if (key == XK_s)
-		game->img_player = mlx_xpm_file_to_image
-			(game->mlx, PLAYER_S, &game->img_width, &game->img_height);
-	else if (key == XK_a)
-		game->img_player = mlx_xpm_file_to_image
-			(game->mlx, PLAYER_A, &game->img_width, &game->img_height);
-	else if (key == XK_d)
-		game->img_player = mlx_xpm_file_to_image
-			(game->mlx, PLAYER_D, &game->img_width, &game->img_height);
 }

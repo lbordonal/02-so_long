@@ -6,24 +6,21 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:20:47 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 19:06:53 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 23:53:31 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	map_extension_checker(char *map)
+static int	map_extension_checker(char *map)
 {
 	int	i;
 
-	i = 0;
 	if (!map)
 		return (0);
-	while (map[i])
-		i++;
-	i--;
+	i = ft_strlen(map) - 1;
 	if (map[i] == 'r' && map[i - 1] == 'e' &&
-		map[i - 2] == 'b' && map[i - 3] == '.')
+			map[i - 2] == 'b' && map[i - 3] == '.')
 		return (1);
 	return (0);
 }
@@ -63,7 +60,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
-		if (map_extension_checker(av[1]) && map_checker(&game))
+		if (map_checker(&game) && map_extension_checker(av[1]))
 		{
 			game_init(&game);
 			game_play(&game);

@@ -6,13 +6,13 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:23:57 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 18:57:45 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 23:52:27 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	map_is_retangular(char **map)
+static int	map_is_retangular(char **map)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int	map_is_retangular(char **map)
 	return (1);
 }
 
-int	map_wall_is_valid(char **map)
+static int	map_wall_is_valid(char **map)
 {
 	int	i;
 	int	j;
@@ -55,7 +55,7 @@ int	map_wall_is_valid(char **map)
 	return (1);
 }
 
-int	map_is_correct(char **map)
+static int	map_is_correct(char **map)
 {
 	int	i;
 	int	j;
@@ -67,7 +67,7 @@ int	map_is_correct(char **map)
 		while (map[i][j] != '\0')
 		{
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
-				&& map[i][j] != '0' && map[i][j] != '1')
+					&& map[i][j] != '0' && map[i][j] != '1')
 				return (0);
 			j++;
 		}
@@ -76,7 +76,7 @@ int	map_is_correct(char **map)
 	return (1);
 }
 
-int	map_is_functional(t_game *game)
+static int	map_is_functional(t_game *game)
 {
 	int	i;
 	int	j;
@@ -108,7 +108,7 @@ int	map_is_functional(t_game *game)
 int	map_checker(t_game *game)
 {
 	if (map_is_retangular(game->map) && map_wall_is_valid(game->map)
-		&& map_is_correct(game->map) && map_is_functional(game))
+			&& map_is_correct(game->map) && map_is_functional(game))
 		return (1);
 	return (0);
 }

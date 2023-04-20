@@ -6,13 +6,13 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:46:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 19:09:37 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 00:27:34 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	game_events(int key, t_game *game)
+static void	game_events(int key, t_game *game)
 {
 	if (key == XK_w || key == XK_Up)
 	{
@@ -36,7 +36,7 @@ void	game_events(int key, t_game *game)
 	}
 }
 
-int	handle_keypress(int key, t_game *game)
+static int	handle_keypress(int key, t_game *game)
 {
 	if(key == XK_Escape)
 	{

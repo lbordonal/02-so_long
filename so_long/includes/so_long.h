@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 19:07:02 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 00:22:28 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,16 @@
 # define PLAYER_A "./assets/images/PA.xpm"
 # define PLAYER_D "./assets/images/PD.xpm"
 # define COLLECT "./assets/images/C.xpm"
-# define EXIT "./assets/images/E.xpm"
+# define EXIT_IMG "./assets/images/E.xpm"
+# define EXIT_IMG2 "./assets/images/E2.xpm"
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define UP 65362
+# define LEFT 65361
+# define DOWN 65364
+# define RIGHT 65363
 
 typedef struct s_game
 {
@@ -63,19 +72,12 @@ typedef struct s_game
 }	t_game;
 
 /* main.c: */
-int		map_extension_checker(char *map);
 char	**read_map(char *path);
 
 /* map.c: */
-int		map_is_retangular(char **map);
-int		map_wall_is_valid(char **map);
-int		map_is_correct(char **map);
-int		map_is_functional(t_game *game);
 int		map_checker(t_game *game);
 
 /* initialize.c: */
-void	imgs_init(t_game *game);
-void	size_window_init(t_game *game);
 void	game_init(t_game *game);
 
 /* player_moves.c: */
@@ -83,17 +85,12 @@ void	player_move_w(t_game *game);
 void	player_move_a(t_game *game);
 void	player_move_s(t_game *game);
 void	player_move_d(t_game *game);
-void	player_update(char key, t_game *game);
 
 /* draw.c: */
 void	draw_img(t_game *game, void *img, int x, int y);
-void	draw_player(t_game *game, void *img, int x, int y);
-void	draw_exit(t_game *game, int x, int y);
 int		draw_map(t_game *game);
 
 /* events.c: */
-void	game_events(int key, t_game *game);
-int		handle_keypress(int key, t_game *game);
 void	game_play(t_game *game);
 
 /* exit_and_free.c: */

@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 12:24:12 by lbordona          #+#    #+#              #
-#    Updated: 2023/04/20 18:16:10 by lbordona         ###   ########.fr        #
+#    Updated: 2023/04/20 22:43:20 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ SRCS = srcs/main.c \
 	srcs/initialize.c \
 	srcs/draw.c \
 	srcs/exit_and_free.c \
-	srcs/player_moves.c \
-	srcs/events.c
+	srcs/player_moves.c
 
 OBJS = $(SRCS:%.c=%.o)
 
