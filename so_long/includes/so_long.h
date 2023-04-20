@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/19 18:34:35 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 14:17:29 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,11 @@
 #  define BLUE_PIXEL 0x0000FF
 # endif
 
-# ifndef MLX_ERROR
-#  define MLX_ERROR 1
-# endif
-
-# ifndef WIDTH
-#  define WIDTH 600
-# endif
-
-# ifndef HEIGHT
-#  define HEIGHT 300
-# endif
+# define BACKGROUND "./assets/images/0.xpm"
+# define WALL "./assets/images/1.xpm"
+# define PLAYER "./assets/images/P.xpm"
+# define COLLECT "./assets/images/C.xpm"
+# define EXIT "./assets/images/E.xpm"
 
 typedef struct s_game
 {
@@ -53,7 +47,7 @@ typedef struct s_game
 	void	*img_collect;
 	void	*img_exit;
 	int		map_width;
-	int		map_heigth;
+	int		map_height;
 	int		img_width;
 	int		img_height;
 	int		n_collect;
@@ -91,6 +85,17 @@ typedef struct s_rectangle
 }	t_rectangle;
 
 /* main.c: */
+int		map_extension_checker(char *map);
+char	**read_map(char *path);
+
+/* map.c: */
+int		map_is_retangular(char **map);
+int		map_wall_is_valid(char **map);
+int		map_is_correct(char **map);
+int		map_is_functional(t_game *game);
+int		map_checker(t_game *game);
+
+/* initialize.c: */
 
 /* events.c: */
 int		handle_no_event(void *data);

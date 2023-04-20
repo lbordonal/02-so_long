@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 12:24:12 by lbordona          #+#    #+#              #
-#    Updated: 2023/04/19 18:15:05 by lbordona         ###   ########.fr        #
+#    Updated: 2023/04/20 14:04:28 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ LIBFT = ./libft/libft.a
 MINILIBX = ./minilibx-linux/libmlx.a
 
 SRCS = srcs/main.c \
-	srcs/events.c
+	srcs/events.c \
+	srcs/map.c \
+	srcs/initialize.c
 
 OBJS = $(SRCS:%.c=%.o)
 

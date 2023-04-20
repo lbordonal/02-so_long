@@ -6,25 +6,24 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:20:47 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/19 18:58:28 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 13:22:21 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	map_extension_checker(int ac, char *av)
+int	map_extension_checker(char *map)
 {
 	int	i;
 
-	(void)ac;
 	i = 0;
-	if (!av)
+	if (!map)
 		return (0);
-	while (av[i])
+	while (map[i])
 		i++;
 	i--;
-	if (av[i] == 'r' && av[i - 1] == 'e' &&
-		av[i - 2] == 'b' && av[i - 3] == '.')
+	if (map[i] == 'r' && map[i - 1] == 'e' &&
+		map[i - 2] == 'b' && map[i - 3] == '.')
 		return (1);
 	return (0);
 }
@@ -55,4 +54,33 @@ char	**read_map(char *path)
 	free(holder_map);
 	close(fd);
 	return (map);
+}
+
+int	main(int ac, char **av)
+{
+	t_game	game;
+
+	if (ac == 2)
+	{
+		game.map = read_map(av[1]);
+		if (map_extension_checker(av[1]))
+		{
+			game_init(&game);
+			game_play(&game);
+			mlx_loop(game.mlx);
+		}
+		else
+		{
+			if (game.map)
+				free_map(game.map);
+			ft_printf("%s\n", "Error → Invalid map!");
+			exit(1);
+		}
+	}
+	else
+	{
+		ft_printf("%s\n", "Error!");
+		exit(1);
+	}
+	return (0);
 }
