@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:46:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 00:27:34 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 00:42:11 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	game_events(int key, t_game *game)
 	}
 	else if (key == XK_d || key == XK_Right)
 	{
-		game->player_y += 1;
+		game->player_x += 1;
 		player_move_d(game);
 	}
 }
