@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:20:47 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 13:22:21 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:06:53 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		game.map = read_map(av[1]);
-		if (map_extension_checker(av[1]))
+		if (map_extension_checker(av[1]) && map_checker(&game))
 		{
 			game_init(&game);
 			game_play(&game);

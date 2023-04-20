@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:22:50 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 16:53:05 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:01:13 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int	draw_map(t_game *game)
 			else if (game->map[x][y] == 'P')
 				draw_player(game, game->img_player, x, y);
 			else if (game->map[x][y] == 'C')
-				img_draw(game, game->img_collect, x, y);
+				draw_img(game, game->img_collect, x, y);
 			else if (game->map[x][y] == 'E')
-				draw_exit(game, game->img_exit, x, y);
+				draw_exit(game->img_exit, x, y);
 			x++;
 		}
 		y++;

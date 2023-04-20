@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:03:41 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 16:29:41 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:59:56 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	imgs_init(t_game *game)
 {
 	game->img_background = mlx_xpm_file_to_image
-		(game->mlx, BACKGROUND, &game->width, &game->img_height);
+		(game->mlx, BACKGROUND, &game->img_width, &game->img_height);
 	game->img_wall = mlx_xpm_file_to_image
-		(game->mlx, WALL, &game->width, &game->img_height);
+		(game->mlx, WALL, &game->img_width, &game->img_height);
 	game->img_player = mlx_xpm_file_to_image
-		(game->mlx, PLAYER, &game->width, &game->img_height);
+		(game->mlx, PLAYER_D, &game->img_width, &game->img_height);
 	game->img_collect = mlx_xpm_file_to_image
-		(game->mlx, COLLECT, &game->width, &game->img_height);
+		(game->mlx, COLLECT, &game->img_width, &game->img_height);
 	game->img_exit = mlx_xpm_file_to_image
-		(game->mlx, EXIT, &game->width, &game->img_height);
+		(game->mlx, EXIT, &game->img_width, &game->img_height);
 }
 
 void	size_window_init(t_game *game)
@@ -31,8 +31,8 @@ void	size_window_init(t_game *game)
 	int	i;
 
 	i = 0;
-	game->map_width = ft_strlen(game->map[0] * 32);
-	while (game->map[i] != '\0')
+	game->map_width = ft_strlen(game->map[0]) * 32;
+	while (game->map[i])
 		i++;
 	game->map_height = i * 32;
 }
@@ -46,5 +46,5 @@ void	game_init(t_game *game)
 	game->moves = 0;
 	game->endgame = 0;
 	imgs_init(game);
-	map_draw(game);
+	draw_map(game);
 }

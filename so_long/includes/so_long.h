@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 16:53:03 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:07:02 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@
 
 # define BACKGROUND "./assets/images/0.xpm"
 # define WALL "./assets/images/1.xpm"
-# define PLAYER "./assets/images/P.xpm"
+# define PLAYER_W "./assets/images/PW.xpm"
+# define PLAYER_S "./assets/images/PS.xpm"
+# define PLAYER_A "./assets/images/PA.xpm"
+# define PLAYER_D "./assets/images/PD.xpm"
 # define COLLECT "./assets/images/C.xpm"
 # define EXIT "./assets/images/E.xpm"
 
@@ -59,31 +62,6 @@ typedef struct s_game
 	int		endgame;
 }	t_game;
 
-typedef struct s_img
-{
-	void	*mlx_img;
-	char	*addr;
-	int		bpp;/* bits per pixel */
-	int		line_len;
-	int		endian;
-}	t_img;
-
-typedef struct s_data
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	img;
-}	t_data;
-
-typedef struct s_rectangle
-{
-	int		x;
-	int		y;
-	int		width;
-	int		height;
-	int		color;
-}	t_rectangle;
-
 /* main.c: */
 int		map_extension_checker(char *map);
 char	**read_map(char *path);
@@ -100,6 +78,13 @@ void	imgs_init(t_game *game);
 void	size_window_init(t_game *game);
 void	game_init(t_game *game);
 
+/* player_moves.c: */
+void	player_move_w(t_game *game);
+void	player_move_a(t_game *game);
+void	player_move_s(t_game *game);
+void	player_move_d(t_game *game);
+void	player_update(char key, t_game *game);
+
 /* draw.c: */
 void	draw_img(t_game *game, void *img, int x, int y);
 void	draw_player(t_game *game, void *img, int x, int y);
@@ -109,7 +94,7 @@ int		draw_map(t_game *game);
 /* events.c: */
 void	game_events(int key, t_game *game);
 int		handle_keypress(int key, t_game *game);
-void	gameplay(t_game *game);
+void	game_play(t_game *game);
 
 /* exit_and_free.c: */
 void	free_map(char **map);

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:11:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 16:16:01 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:01:32 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_map(char **map)
 	int	i;
 
 	i = 0;
-	while (map[i] != '\0')
+	while (map[i])
 	{
 		free(map[i]);
 		i++;
