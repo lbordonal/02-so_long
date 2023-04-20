@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 14:17:29 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:53:03 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,23 @@ int		map_is_functional(t_game *game);
 int		map_checker(t_game *game);
 
 /* initialize.c: */
+void	imgs_init(t_game *game);
+void	size_window_init(t_game *game);
+void	game_init(t_game *game);
+
+/* draw.c: */
+void	draw_img(t_game *game, void *img, int x, int y);
+void	draw_player(t_game *game, void *img, int x, int y);
+void	draw_exit(t_game *game, int x, int y);
+int		draw_map(t_game *game);
 
 /* events.c: */
-int		handle_no_event(void *data);
-int		handle_keypress(int key, t_data *data); //what is done when I press a key
-int		render(t_data *data); //draw a pixel
-int		render_rectangle(t_img *img, t_rectangle rectangle); //draw a rectangle
-void	render_background(t_img *img, int color); //coloring background
-void	img_pix_put(t_img *img, int x, int y, int color); //img pix put
+void	game_events(int key, t_game *game);
+int		handle_keypress(int key, t_game *game);
+void	gameplay(t_game *game);
+
+/* exit_and_free.c: */
+void	free_map(char **map);
+int		exit_game(t_game *game);
 
 #endif

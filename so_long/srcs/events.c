@@ -6,85 +6,53 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:46:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/19 18:19:45 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:52:58 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	handle_no_event(void *data)
+void	game_events(int key, t_game *game)
 {
-	(void)data;
-	return (0);
+	if (key == XK_w || key == XK_Up)
+	{
+		game->player_y -= 1;
+		player_w(game);
+	}
+	else if (key == XK_s || key == XK_Down)
+	{
+		game->player_y += 1;
+		player_s(game);
+	}
+	else if (key == XK_a || key == XK_Left)
+	{
+		game->player_x -= 1;
+		player_a(game);
+	}
+	if (key == XK_d || key == XK_Right)
+	{
+		game->player_y += 1;
+		player_d(game);
+	}
 }
 
-int	handle_keypress(int key, t_data *data)
+int	handle_keypress(int key, t_game *game)
 {
 	if(key == XK_Escape)
 	{
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		data->win_ptr = NULL;
+		exit_game(game);
 	}
-	else if(key == 97)
-		render(data);
-	return (0);
-}
-
-void	img_pix_put(t_img *img, int x, int y, int color)
-{
-	char    *pixel;
-	int		i;
-
-	i = img->bpp - 8;
-    pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
-	while (i >= 0)
+	else if(!game->endgame)
 	{
-		if (img->endian != 0)
-			*pixel++ = (color >> i) & 0xFF;
-		else
-			*pixel++ = (color >> (img->bpp - 8 - i)) & 0xFF;
-		i -= 8;
-	}
-}
-
-
-int	render_rectangle(t_img *img, t_rectangle rectangle)
-{
-	int	i;
-	int	j;
-
-	i = rectangle.y;
-	while (i < rectangle.y + rectangle.height)
-	{
-		j = rectangle.x;
-		while (j < rectangle.x + rectangle.width)
-			img_pix_put(img, j++, i, rectangle.color);
-		++i;
+		game_events(key, game);
+		ft_printf("%s%d\n", "Moves: ", game->moves);
 	}
 	return (0);
 }
 
-void	render_background(t_img *img, int color)
+void	gameplay(t_game *game)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < HEIGHT)
-	{
-		j = 0;
-		while (j < WIDTH)
-			img_pix_put(img, j++, i, color);
-		i++;
-	}
-}
-
-int	render(t_data *data)
-{
-	if (data->win_ptr == NULL)
-		return (1);
-	render_background(&data->img, BLUE_PIXEL);
-	render_rectangle(&data->img, (t_rectangle){200, 200, 100, 100, GREEN_PIXEL});
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, 0, 0);
-	return (0);
+	mlx_hook(game->win, 2, 1L << 0, handle_keypress, game);
+	mlx_hook(game->win, 17, 1L << 17, exit_game, game);
+	mlx_hook(game->win, 9, 1L << 21, map_draw, game);
 }

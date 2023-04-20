@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 12:24:12 by lbordona          #+#    #+#              #
-#    Updated: 2023/04/20 14:04:28 by lbordona         ###   ########.fr        #
+#    Updated: 2023/04/20 16:53:04 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,10 @@ MINILIBX = ./minilibx-linux/libmlx.a
 SRCS = srcs/main.c \
 	srcs/events.c \
 	srcs/map.c \
-	srcs/initialize.c
+	srcs/initialize.c \
+	srcs/draw.c \
+	srcs/exit_and_free.c \
+	srcs/events.c
 
 OBJS = $(SRCS:%.c=%.o)
 
