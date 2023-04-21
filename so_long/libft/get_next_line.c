@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:38:27 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 23:25:04 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:26:35 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ char	*get_next_line(int fd)
 	stash = start_next_stash(stash);
 	return (line);
 }
+
+/*============================================================*/
 
 /* char	*get_next_line(int fd)
 {

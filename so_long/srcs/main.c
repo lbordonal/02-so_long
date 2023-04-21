@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:20:47 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/20 23:53:31 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:37:44 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int	map_extension_checker(char *map)
 	if (!map)
 		return (0);
 	i = ft_strlen(map) - 1;
-	if (map[i] == 'r' && map[i - 1] == 'e' &&
-			map[i - 2] == 'b' && map[i - 3] == '.')
+	if (map[i] == 'r' && map[i - 1] == 'e'
+		&& map[i - 2] == 'b' && map[i - 3] == '.')
 		return (1);
 	return (0);
 }

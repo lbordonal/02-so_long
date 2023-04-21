@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:46:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 00:42:11 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:37:45 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ static void	game_events(int key, t_game *game)
 
 static int	handle_keypress(int key, t_game *game)
 {
-	if(key == XK_Escape)
+	if (key == XK_Escape)
 	{
 		exit_game(game);
 	}
-	else if(!game->endgame)
+	else if (!game->endgame)
 	{
 		game_events(key, game);
 		ft_printf("%s%d\n", "Moves: ", game->moves);

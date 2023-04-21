@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:03:41 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 01:07:10 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:42:16 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	game_init(t_game *game)
 {
 	game->mlx = mlx_init();
 	size_window_init(game);
-	game->win = mlx_new_window(game->mlx, game->map_width, game->map_height, "so_long - miranha em busca do miojinho");
+	game->win = mlx_new_window(game->mlx, game->map_width,
+			game->map_height, "so_long - miranha em busca do miojinho");
 	game->moves = 0;
 	game->endgame = 0;
 	imgs_init(game);
