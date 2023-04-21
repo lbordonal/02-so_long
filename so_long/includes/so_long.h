@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/03/17 23:40:37 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 00:22:28 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,50 +16,85 @@
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
+# include <X11/keysym.h>
 
-typedef struct s_window
+# ifndef RED_PIXEL
+#  define RED_PIXEL 0xFF0000
+# endif
+
+# ifndef GREEN_PIXEL
+#  define GREEN_PIXEL 0x00FF00
+# endif
+
+# ifndef BLUE_PIXEL
+#  define BLUE_PIXEL 0x0000FF
+# endif
+
+# define BACKGROUND "./assets/images/0.xpm"
+# define WALL "./assets/images/1.xpm"
+# define PLAYER_W "./assets/images/PW.xpm"
+# define PLAYER_S "./assets/images/PS.xpm"
+# define PLAYER_A "./assets/images/PA.xpm"
+# define PLAYER_D "./assets/images/PD.xpm"
+# define COLLECT "./assets/images/C.xpm"
+# define EXIT_IMG "./assets/images/E.xpm"
+# define EXIT_IMG2 "./assets/images/E2.xpm"
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define UP 65362
+# define LEFT 65361
+# define DOWN 65364
+# define RIGHT 65363
+
+typedef struct s_game
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		height;
-	int		width;
-}		t_window;
+	void	*mlx;
+	void	*win;
+	char	**map;
+	void	*img_background;
+	void	*img_wall;
+	void	*img_player;
+	void	*img_collect;
+	void	*img_exit;
+	int		map_width;
+	int		map_height;
+	int		img_width;
+	int		img_height;
+	int		n_collect;
+	int		n_player;
+	int		n_exit;
+	int		player_x;
+	int		player_y;
+	int		moves;
+	int		endgame;
+}	t_game;
 
-typedef struct s_img
-{
-	t_window	*win;
-	void		*img_ptr;
-	char		*addr;
-	int			h;
-	int			w;
-	int			bpp;
-	int			endian;
-	int			line_len;
-}		t_img;
+/* main.c: */
+char	**read_map(char *path);
 
-/* forms structure: */
-typedef struct s_square {
-	unsigned short int	x;
-	unsigned short int	y;
-	unsigned short int	size;
-	int					color;
-}		t_square;
+/* map.c: */
+int		map_checker(t_game *game);
 
+/* initialize.c: */
+void	game_init(t_game *game);
 
-/* window_and_images.c: */
-void		put_pixel_img(t_img *img, int x, int y, int color);
-t_img		*new_image(t_window *win, int height, int width);
-t_window	*new_window(int height, int width, char *str);
+/* player_moves.c: */
+void	player_move_w(t_game *game);
+void	player_move_a(t_game *game);
+void	player_move_s(t_game *game);
+void	player_move_d(t_game *game);
 
-/* colors.c: */
-int			create_trgb(int t, int r, int g, int b);
-int			get_t(int trgb);
-int			get_r(int trgb);
-int			get_g(int trgb);
-int			get_b(int trgb);
+/* draw.c: */
+void	draw_img(t_game *game, void *img, int x, int y);
+int		draw_map(t_game *game);
 
-/* forms.c: */
-void		draw_square(t_square square, t_img *img);
+/* events.c: */
+void	game_play(t_game *game);
 
+/* exit_and_free.c: */
+void	free_map(char **map);
+int		exit_game(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:07:22 by lbordona          #+#    #+#             */
-/*   Updated: 2022/11/03 18:03:53 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/20 23:19:43 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,18 @@
 
 void	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	char	*str;
+	int	i;
 
 	i = 0;
-	str = (char *)s;
+	if (!s)
+		return (NULL);
 	while (s[i] != c)
 	{
 		if (s[i] == '\0')
-		{
 			return (NULL);
-		}
 		i++;
-		str++;
 	}
-	return (str);
+	return ((char *)s + i);
 }
 
 /* int		main(void)

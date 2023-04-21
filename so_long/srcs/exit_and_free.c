@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   forms.c                                            :+:      :+:    :+:   */
+/*   exit_and_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 23:37:26 by lbordona          #+#    #+#             */
-/*   Updated: 2023/03/17 23:40:00 by lbordona         ###   ########.fr       */
+/*   Created: 2023/04/20 16:11:51 by lbordona          #+#    #+#             */
+/*   Updated: 2023/04/21 19:37:48 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	draw_square(t_square square, t_img *img)
+void	free_map(char **map)
 {
-	unsigned short int	i;
-	unsigned short int	j;
+	int	i;
 
 	i = 0;
-	while (i < square.size && i < img->h)
+	while (map[i])
 	{
-		j = 0;
-		while (j < square.size && j < img->w)
-		{
-			put_pixel_img(img, j + square.x, i + square.y, square.color);
-			j++;
-		}
+		free(map[i]);
 		i++;
 	}
+	free(map);
+}
+
+int	exit_game(t_game *game)
+{
+	free_map(game->map);
+	mlx_destroy_image(game->mlx, game->img_background);
+	mlx_destroy_image(game->mlx, game->img_wall);
+	mlx_destroy_image(game->mlx, game->img_player);
+	mlx_destroy_image(game->mlx, game->img_collect);
+	mlx_destroy_image(game->mlx, game->img_exit);
+	mlx_destroy_window(game->mlx, game->win);
+	free(game->mlx);
+	exit(0);
+	return (0);
 }

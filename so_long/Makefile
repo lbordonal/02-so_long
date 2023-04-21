@@ -6,47 +6,48 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 12:24:12 by lbordona          #+#    #+#              #
-#    Updated: 2023/03/18 00:17:06 by lbordona         ###   ########.fr        #
+#    Updated: 2023/04/20 22:43:20 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-EXTRA = -lXext -lX11
-LIBFT = ./libft
-MLX = libmlx_Linux.a
-RM = rm -rf
 NAME = so_long
 
-MLXDIR = ./minilibx-linux/
+CC = cc -g
+CFLAGS = -Wall -Wextra -Werror
+EXTRA = -lXext -lX11
+RM = rm -rf
+LIBFT = ./libft/libft.a
+MINILIBX = ./minilibx-linux/libmlx.a
 
 SRCS = srcs/main.c \
-	srcs/window_and_images.c \
-	srcs/colors.c \
-	srcs/forms.c
+	srcs/events.c \
+	srcs/map.c \
+	srcs/initialize.c \
+	srcs/draw.c \
+	srcs/exit_and_free.c \
+	srcs/player_moves.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:%.c=%.o)
 
 all: $(NAME)
 
-$(MLX):
-	cd $(MLXDIR) && $(MAKE)
+$(LIBFT):
+	@$(MAKE) -C ./libft
 
-$(NAME): $(OBJS) $(MINILIBX)
-	$(MAKE) -C ./libft
-	$(CC) $(CFLAGS) $(OBJS) $(MLXDIR)$(MLX) $(EXTRA) -o $(NAME)
+$(MINILIBX):
+	@$(MAKE) -C ./minilibx-linux
 
-
-bonus: all
+$(NAME): $(OBJS) $(LIBFT) $(MINILIBX)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MINILIBX) $(EXTRA) -o $(NAME)
 
 clean:
-	$(MAKE) clean -C ./libft
-#	$(MAKE) clean -C ./minilibx-linux
-	$(RM) $(OBJS)
+	@$(MAKE) clean -C ./libft
+	@$(MAKE) clean -C ./minilibx-linux
+	@$(RM) $(OBJS)
 
 fclean: clean
-	$(MAKE) fclean -C ./libft
-	cd $(MLXDIR) && $(MAKE) clean
+	@$(MAKE) fclean -C ./libft
+#	@$(MAKE) fclean -C ./minilibx-linux
 	$(RM) $(NAME)
 
 re: fclean all
