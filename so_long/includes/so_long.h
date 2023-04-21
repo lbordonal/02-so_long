@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 00:22:28 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/21 19:48:06 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,6 @@
 # include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
-
-# ifndef RED_PIXEL
-#  define RED_PIXEL 0xFF0000
-# endif
-
-# ifndef GREEN_PIXEL
-#  define GREEN_PIXEL 0x00FF00
-# endif
-
-# ifndef BLUE_PIXEL
-#  define BLUE_PIXEL 0x0000FF
-# endif
 
 # define BACKGROUND "./assets/images/0.xpm"
 # define WALL "./assets/images/1.xpm"
