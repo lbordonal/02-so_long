@@ -52,7 +52,7 @@ static int	handle_keypress(int key, t_game *game)
 
 void	game_play(t_game *game)
 {
-	mlx_hook(game->win, 2, 1L << 0, handle_keypress, game);
-	mlx_hook(game->win, 17, 1L << 17, exit_game, game);
+	mlx_hook(game->win, KeyPress, KeyPressMask, handle_keypress, game);
+	mlx_hook(game->win, DestroyNotify, ButtonPressMask, exit_game, game);
 	mlx_hook(game->win, 9, 1L << 21, draw_map, game);
 }
