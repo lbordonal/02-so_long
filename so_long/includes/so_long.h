@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 19:48:06 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:05:15 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void	draw_img(t_game *game, void *img, int x, int y);
 int		draw_map(t_game *game);
 
 /* events.c: */
+void	imgs_init(t_game *game);
+void	size_window_init(t_game *game);
 void	game_play(t_game *game);
 
 /* exit_and_free.c: */

@@ -6,13 +6,13 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:03:41 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 19:42:16 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:05:21 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	imgs_init(t_game *game)
+void	imgs_init(t_game *game)
 {
 	game->img_background = mlx_xpm_file_to_image
 		(game->mlx, BACKGROUND, &game->img_width, &game->img_height);
@@ -26,7 +26,7 @@ static void	imgs_init(t_game *game)
 		(game->mlx, EXIT_IMG, &game->img_width, &game->img_height);
 }
 
-static void	size_window_init(t_game *game)
+void	size_window_init(t_game *game)
 {
 	int	i;
 
