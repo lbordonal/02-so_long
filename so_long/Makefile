@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME = so_long
+NAME_BONUS = so_long_bonus
 
 CC = cc -g
 CFLAGS = -Wall -Wextra -Werror
@@ -27,7 +28,16 @@ SRCS = srcs/main.c \
 	srcs/exit_and_free.c \
 	srcs/player_moves.c
 
+SRCS_BONUS = srcs_bonus/main.c \
+	srcs_bonus/events.c \
+	srcs_bonus/map.c \
+	srcs_bonus/initialize.c \
+	srcs_bonus/draw.c \
+	srcs_bonus/exit_and_free.c \
+	srcs_bonus/player_moves.c
+
 OBJS = $(SRCS:%.c=%.o)
+OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
 
 all: $(NAME)
 
@@ -40,14 +50,17 @@ $(MINILIBX):
 $(NAME): $(OBJS) $(LIBFT) $(MINILIBX)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MINILIBX) $(EXTRA) -o $(NAME)
 
+bonus: $(OBJS_BONUS) $(LIBFT) $(MINILIBX)
+	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) $(MINILIBX) $(EXTRA) -o $(NAME_BONUS)
+
 clean:
 	@$(MAKE) clean -C ./libft
 	@$(MAKE) clean -C ./minilibx-linux
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	@$(MAKE) fclean -C ./libft
 #	@$(MAKE) fclean -C ./minilibx-linux
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME_BONUS)
 
 re: fclean all
