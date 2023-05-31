@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/27 12:05:15 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/05/31 13:38:34 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 # define COLLECT "./assets/images/C.xpm"
 # define EXIT_IMG "./assets/images/E.xpm"
 # define EXIT_IMG2 "./assets/images/E2.xpm"
+# define ENEMY_W "./assets/images/ENW.xpm"
+# define ENEMY_S "./assets/images/ENS.xpm"
+# define ENEMY_A "./assets/images/ENA.xpm"
+# define ENEMY_D "./assets/images/END.xpm"
 # define W 119
 # define A 97
 # define S 115
@@ -44,6 +48,7 @@ typedef struct s_game
 	void	*img_background;
 	void	*img_wall;
 	void	*img_player;
+	void	*img_enemy;
 	void	*img_collect;
 	void	*img_exit;
 	int		map_width;

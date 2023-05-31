@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 12:24:12 by lbordona          #+#    #+#              #
-#    Updated: 2023/04/20 22:43:20 by lbordona         ###   ########.fr        #
+#    Updated: 2023/05/31 13:35:23 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS_BONUS = srcs_bonus/main.c \
 	srcs_bonus/initialize.c \
 	srcs_bonus/draw.c \
 	srcs_bonus/exit_and_free.c \
-	srcs_bonus/player_moves.c
+	srcs_bonus/player_moves.c \
+	srcs_bonus/enemy.c
 
 OBJS = $(SRCS:%.c=%.o)
 OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
