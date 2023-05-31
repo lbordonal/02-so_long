@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:03:41 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/27 12:05:21 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:59:12 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	imgs_init(t_game *game)
 		(game->mlx, COLLECT, &game->img_width, &game->img_height);
 	game->img_exit = mlx_xpm_file_to_image
 		(game->mlx, EXIT_IMG, &game->img_width, &game->img_height);
+	game->img_enemy = mlx_xpm_file_to_image
+		(game->mlx, ENEMY_D, &game->img_width, &game->img_height);
 }
 
 void	size_window_init(t_game *game)
@@ -34,7 +36,7 @@ void	size_window_init(t_game *game)
 	game->map_width = ft_strlen(game->map[0]) * 32;
 	while (game->map[i])
 		i++;
-	game->map_height = i * 32;
+	game->map_height = i * 32 + 32;
 }
 
 void	game_init(t_game *game)
@@ -45,6 +47,8 @@ void	game_init(t_game *game)
 			game->map_height, "so_long - miranha em busca do miojinho");
 	game->moves = 0;
 	game->endgame = 0;
+	game->pos_enemies = 1;
+	game->loop = 0;
 	imgs_init(game);
 	draw_map(game);
 }

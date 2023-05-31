@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:22:50 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 19:36:22 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:04:25 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	draw_img(t_game *game, void *img, int x, int y)
 {
 	x *= 32;
-	y *= 32;
+	y *= 32 + 32;
 	mlx_put_image_to_window(game->mlx, game->win, img, x, y);
 }
 
@@ -47,9 +47,12 @@ int	draw_map(t_game *game)
 				draw_img(game, game->img_collect, x, y);
 			else if (game->map[y][x] == 'E')
 				draw_img(game, game->img_exit, x, y);
+			else if (game->map[y][x] == 'T')
+				draw_img(game, game->img_enemy, x, y);
 			x++;
 		}
 		y++;
 	}
+	show_moves(game);
 	return (0);
 }

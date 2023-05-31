@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:11:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/27 15:13:22 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:46:30 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	exit_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->img_background);
 	mlx_destroy_image(game->mlx, game->img_wall);
 	mlx_destroy_image(game->mlx, game->img_player);
+	mlx_destroy_image(game->mlx, game->img_enemy);
 	mlx_destroy_image(game->mlx, game->img_collect);
 	mlx_destroy_image(game->mlx, game->img_exit);
 	mlx_destroy_window(game->mlx, game->win);

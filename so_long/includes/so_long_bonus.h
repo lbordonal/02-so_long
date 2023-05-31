@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/05/31 13:38:34 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:03:27 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ typedef struct s_game
 	int		player_x;
 	int		player_y;
 	int		moves;
+	int		pos_enemies;
+	int		loop;
 	int		endgame;
 }	t_game;
 
@@ -79,6 +81,11 @@ void	player_move_a(t_game *game);
 void	player_move_s(t_game *game);
 void	player_move_d(t_game *game);
 
+/* player_moves_2.c: */
+void	show_moves(t_game *game);
+int		animation(t_game *game);
+void	you_are_vanished(t_game *game);
+
 /* draw.c: */
 void	draw_img(t_game *game, void *img, int x, int y);
 int		draw_map(t_game *game);
@@ -91,5 +98,6 @@ void	game_play(t_game *game);
 /* exit_and_free.c: */
 void	free_map(char **map);
 int		exit_game(t_game *game);
+
 
 #endif
