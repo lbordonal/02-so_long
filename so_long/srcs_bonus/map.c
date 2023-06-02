@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:23:57 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 18:20:01 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:28:39 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ static int	map_is_correct(char **map)
 		while (map[i][j] != '\0')
 		{
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
-					&& map[i][j] != '0' && map[i][j] != '1')
+					&& map[i][j] != '0' && map[i][j] != '1'
+						&& map[i][j] != 'T')
 				return (0);
 			j++;
 		}

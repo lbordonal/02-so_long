@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/05/31 17:03:27 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:41:22 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	player_move_d(t_game *game);
 /* player_moves_2.c: */
 void	show_moves(t_game *game);
 int		animation(t_game *game);
+void	you_save_the_world(t_game *game);
 void	you_are_vanished(t_game *game);
 
 /* draw.c: */
