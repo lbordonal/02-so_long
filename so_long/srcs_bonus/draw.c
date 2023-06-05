@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:22:50 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/05 13:57:14 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:23:14 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	draw_map(t_game *game)
 	int	x;
 	int	y;
 
-	y = 0;
-	while (game->map[y])
+	y = -1;
+	while (game->map[++y])
 	{
-		x = 0;
-		while (game->map[y][x])
+		x = -1;
+		while (game->map[y][++x])
 		{
 			if (game->map[y][x] == '0')
 				draw_img(game, game->img_background, x, y);
@@ -49,11 +49,7 @@ int	draw_map(t_game *game)
 				draw_img(game, game->img_exit, x, y);
 			else if (game->map[y][x] == 'T')
 				draw_img(game, game->img_enemy, x, y);
-			x++;
 		}
-		y++;
 	}
-	show_moves(game);
-	you_are_vanished(game);
 	return (0);
 }

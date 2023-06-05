@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:39:15 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/05 13:42:24 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/05 14:24:06 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,13 @@ void	show_moves(t_game *game)
 
 void	you_save_the_world(t_game *game)
 {
-	//mlx_string_put(game->mlx, game->win, 25, 20, 0x00FF00, "YOU SAVE THE WORLD FROM THANOS!");
-	//mlx_string_put(game->mlx, game->win, 150, 20, 0x00FF00, "YOU SAVE THE WORLD FROM THANOS!");
 	ft_printf("\033[0;32mYOU SAVE THE WORLD FROM THANOS!\n");
-	//sleep(5);
 	exit_game(game);
 }
 
 void	you_are_vanished(t_game *game)
 {
-	mlx_string_put(game->mlx, game->win, 25, 20, 0xFF0000, "YOU ARE VANISHED BY THANOS!");
-	//mlx_string_put(game->mlx, game->win, 150, 20, 0xFF0000, "YOU ARE VANISHED BY THANOS!");
 	ft_printf("\033[0;31mYOU ARE VANISHED BY THANOS!\n");
-	sleep(5);
 	exit_game(game);
 }
 
@@ -58,14 +52,6 @@ int	animation(t_game *game)
 			(game->mlx, ENEMY_D, &game->img_width, &game->img_height);
 		game->pos_enemies = 0;
 	}
-	/* else if (game->pos_enemies == 3)
-		game->img_enemy = mlx_xpm_file_to_image
-			(game->mlx, ENEMY_A, &game->img_width, &game->img_height);
-	else if (game->pos_enemies == 4)
-	{
-		game->img_enemy = mlx_xpm_file_to_image
-			(game->mlx, ENEMY_D, &game->img_width, &game->img_height);
-	}*/
 	draw_map(game);
 	game->pos_enemies++;
 	return (0);
