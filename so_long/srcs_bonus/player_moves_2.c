@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:39:15 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/02 16:41:26 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/05 13:42:24 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	show_moves(t_game *game)
 
 void	you_save_the_world(t_game *game)
 {
-	//mlx_string_put(game->mlx, game->win, 25, 20, 0x00FF00, "YOU ARE VANISHED BY THANOS!");
-	//mlx_string_put(game->mlx, game->win, 150, 20, 0x00FF00, "YOU ARE VANISHED BY THANOS!");
+	//mlx_string_put(game->mlx, game->win, 25, 20, 0x00FF00, "YOU SAVE THE WORLD FROM THANOS!");
+	//mlx_string_put(game->mlx, game->win, 150, 20, 0x00FF00, "YOU SAVE THE WORLD FROM THANOS!");
 	ft_printf("\033[0;32mYOU SAVE THE WORLD FROM THANOS!\n");
 	//sleep(5);
 	exit_game(game);
@@ -33,10 +33,10 @@ void	you_save_the_world(t_game *game)
 
 void	you_are_vanished(t_game *game)
 {
-	//mlx_string_put(game->mlx, game->win, 25, 20, 0xFF0000, "YOU ARE VANISHED BY THANOS!");
+	mlx_string_put(game->mlx, game->win, 25, 20, 0xFF0000, "YOU ARE VANISHED BY THANOS!");
 	//mlx_string_put(game->mlx, game->win, 150, 20, 0xFF0000, "YOU ARE VANISHED BY THANOS!");
 	ft_printf("\033[0;31mYOU ARE VANISHED BY THANOS!\n");
-	//sleep(5);
+	sleep(5);
 	exit_game(game);
 }
 
