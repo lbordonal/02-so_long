@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 16:22:50 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/05 14:23:14 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:00:17 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int	draw_map(t_game *game)
 				draw_img(game, game->img_enemy, x, y);
 		}
 	}
+	show_moves(game);
 	return (0);
 }

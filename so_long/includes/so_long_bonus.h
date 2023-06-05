@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/02 16:41:22 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:20:35 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	you_are_vanished(t_game *game);
 
 /* draw.c: */
 void	draw_img(t_game *game, void *img, int x, int y);
+int		draw_map_options(t_game *game, int x, int y);
 int		draw_map(t_game *game);
 
 /* events.c: */
