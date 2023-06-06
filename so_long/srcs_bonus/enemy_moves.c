@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:09:15 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/06 18:19:09 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/06 19:24:11 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*Get a random move for the enemy*/
 void	random_move(t_stack *stack)
 {
-	int	random_move;
+	int random_move;
 
 	random_move = rand() % 4;
 	enemy_position(stack, random_move);
