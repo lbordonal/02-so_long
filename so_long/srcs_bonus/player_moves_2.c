@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:39:15 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/05 17:54:39 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/06 23:14:11 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ void	show_moves(t_game *game)
 	free(moves);
 }
 
-void	you_saved_the_world(t_game *game)
+void	 you_saved_the_world(t_game *game)
 {
 	game->moves++;
 	game->endgame = 1;
-	ft_printf("\033[0;32mYOU HELPED THOR SAVE THE WORLD FROM THANOS!\n");
+	ft_printf("\033[0;32mYOU HELPED THOR TO SAVE THE WORLD FROM THANOS!\n");
 	exit_game(game);
 }
 
 void	you_are_vanished(t_game *game)
 {
-	ft_printf("\033[0;31mYOU ARE VANISHED BY THANOS!\n");
+	ft_printf("\033[0;31mYOU WERE VANISHED BY THANOS!\n");
 	exit_game(game);
 }
 
