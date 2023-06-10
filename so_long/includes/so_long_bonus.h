@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/10 11:07:58 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:44:13 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int		map_checker(t_game *game);
 
 /* initialize.c: */
 void	game_init(t_game *game);
+void	size_window_init(t_game *game);
+void	imgs_init(t_game *game);
 
 /* player_moves.c: */
 void	player_move_w(t_game *game);
@@ -83,23 +85,19 @@ void	player_move_d(t_game *game);
 
 /* player_moves_2.c: */
 void	show_moves(t_game *game);
-int		animation(t_game *game);
 void	you_saved_the_world(t_game *game);
 void	you_are_vanished(t_game *game);
+int		animation(t_game *game);
 
 /* draw.c: */
 void	draw_img(t_game *game, void *img, int x, int y);
-int		draw_map_options(t_game *game, int x, int y);
 int		draw_map(t_game *game);
 
 /* events.c: */
-void	imgs_init(t_game *game);
-void	size_window_init(t_game *game);
 void	game_play(t_game *game);
 
 /* exit_and_free.c: */
 void	free_map(char **map);
 int		exit_game(t_game *game);
-
 
 #endif
