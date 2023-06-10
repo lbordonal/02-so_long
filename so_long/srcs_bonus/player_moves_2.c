@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:39:15 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/06 23:14:11 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:28:32 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	show_moves(t_game *game)
 	free(moves);
 }
 
-void	 you_saved_the_world(t_game *game)
+void	you_saved_the_world(t_game *game)
 {
 	game->moves++;
 	game->endgame = 1;
