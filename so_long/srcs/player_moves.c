@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 18:15:41 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 18:25:07 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/07/24 13:49:54 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	player_move_w(t_game *game)
 	{
 		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->player_y][game->player_x] == 'C')
-				game->n_collect -= 1;
+			game->n_collect -= 1;
 		game->map[game->player_y][game->player_x] = 'P';
 		game->map[game->player_y + 1][game->player_x] = '0';
 		game->moves++;
@@ -77,7 +77,7 @@ void	player_move_s(t_game *game)
 	{
 		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->player_y][game->player_x] == 'C')
-				game->n_collect -= 1;
+			game->n_collect -= 1;
 		game->map[game->player_y][game->player_x] = 'P';
 		game->map[game->player_y - 1][game->player_x] = '0';
 		game->moves++;
@@ -105,7 +105,7 @@ void	player_move_a(t_game *game)
 	{
 		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->player_y][game->player_x] == 'C')
-				game->n_collect -= 1;
+			game->n_collect -= 1;
 		game->map[game->player_y][game->player_x] = 'P';
 		game->map[game->player_y][game->player_x + 1] = '0';
 		game->moves++;
