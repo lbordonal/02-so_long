@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 12:24:12 by lbordona          #+#    #+#              #
-#    Updated: 2023/06/10 12:11:49 by lbordona         ###   ########.fr        #
+#    Updated: 2023/08/20 23:56:56 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ MINILIBX = ./minilibx-linux/libmlx.a
 SRCS = srcs/main.c \
 	srcs/events.c \
 	srcs/map.c \
+	srcs/map2.c \
 	srcs/initialize.c \
 	srcs/draw.c \
 	srcs/exit_and_free.c \
