@@ -123,7 +123,8 @@ static int	map_is_functional(t_game *game)
 int	map_checker(t_game *game)
 {
 	if (map_is_rectangular(game->map) && map_wall_is_valid(game->map)
-		&& map_is_correct(game->map) && map_is_functional(game))
+		&& map_is_correct(game->map) && map_is_functional(game)
+		&& map_has_empty_lines (game->map))
 		return (1);
 	return (0);
 }

@@ -22,7 +22,7 @@ static int	map_extension_checker(char *map)
 	if (map[i] == 'r' && map[i - 1] == 'e'
 		&& map[i - 2] == 'b' && map[i - 3] == '.')
 		return (1);
-	ft_printf("\033[0;31mError → Invalid map extension!\n");
+	ft_printf("\033[0;31mError → Invalid map extension.\n");
 	return (0);
 }
 

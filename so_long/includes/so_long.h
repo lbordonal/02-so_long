@@ -62,8 +62,9 @@ typedef struct s_game
 /* main.c: */
 char	**read_map(char *path);
 
-/* map.c: */
+/* map.c / map2.c: */
 int		map_checker(t_game *game);
+int		map_has_empty_lines(char **map);
 
 /* initialize.c: */
 void	game_init(t_game *game);
