@@ -114,7 +114,7 @@ static int	map_is_functional(t_game *game)
 	}
 	if (game->n_collect != 1 || game->n_player != 1 || game->n_exit != 1)
 	{
-		ft_printf("\033[0;31mError → Map has more than 1 Collectible, Exit or Player.\n");
+		ft_printf("\033[0;31mError → Map has invalid number of Collectible, Exit or Player.\n");
 		return (0);
 	}
 	return (1);
