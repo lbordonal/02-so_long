@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-static int	map_is_retangular(char **map)
+static int	map_is_rectangular(char **map)
 {
 	int	i;
 
@@ -22,7 +22,10 @@ static int	map_is_retangular(char **map)
 	while (map[i])
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[0]))
+		{
+			ft_printf("\033[0;31mError → Map isn't rectangular!\n");
 			return (0);
+		}
 		i++;
 	}
 	return (1);
@@ -41,7 +44,10 @@ static int	map_wall_is_valid(char **map)
 	while (map[0][j] != '\0' && map[i -1][j] != '\0')
 	{
 		if (map[0][j] != '1' || map[i - 1][j] != '1')
+		{
+			ft_printf("\033[0;31mError → Map isn't surrounded by walls!\n");
 			return (0);
+		}
 		j++;
 	}
 	i = 1;
@@ -49,7 +55,10 @@ static int	map_wall_is_valid(char **map)
 	while (map[i])
 	{
 		if (map[i][0] != '1' || map[i][len - 1] != '1')
+		{
+			ft_printf("\033[0;31mError → Map isn't surrounded by walls!\n");
 			return (0);
+		}
 		i++;
 	}
 	return (1);
@@ -68,7 +77,10 @@ static int	map_is_correct(char **map)
 		{
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
 					&& map[i][j] != '0' && map[i][j] != '1')
+			{
+				ft_printf("\033[0;31mError → Map isn't valid! → Check the number of Players, Exits and Collectibles \n");
 				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -101,13 +113,16 @@ static int	map_is_functional(t_game *game)
 		i++;
 	}
 	if (game->n_collect == 0 || game->n_player != 1 || game->n_exit == 0)
+	{
+		ft_printf("\033[0;31mError → Map isn't functional!\n");
 		return (0);
+	}
 	return (1);
 }
 
 int	map_checker(t_game *game)
 {
-	if (map_is_retangular(game->map) && map_wall_is_valid(game->map)
+	if (map_is_rectangular(game->map) && map_wall_is_valid(game->map)
 		&& map_is_correct(game->map) && map_is_functional(game))
 		return (1);
 	return (0);

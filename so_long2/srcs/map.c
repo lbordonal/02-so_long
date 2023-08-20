@@ -78,8 +78,7 @@ static int	map_is_correct(char **map)
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
 					&& map[i][j] != '0' && map[i][j] != '1')
 			{
-				ft_printf("\033[0;31mError → Map isn't valid! → Check the
-					number of Players, Exits and Collectibles \n");
+				ft_printf("\033[0;31mError → Map isn't valid! → Check the number of Players, Exits and Collectibles \n");
 				return (0);
 			}
 			j++;
