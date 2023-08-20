@@ -23,7 +23,7 @@ static int	map_is_rectangular(char **map)
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[0]))
 		{
-			ft_printf("\033[0;31mError → Map isn't rectangular!\n");
+			ft_printf("\033[0;31mError → Map isn't rectangular.\n");
 			return (0);
 		}
 		i++;
@@ -45,7 +45,7 @@ static int	map_wall_is_valid(char **map)
 	{
 		if (map[0][j] != '1' || map[i - 1][j] != '1')
 		{
-			ft_printf("\033[0;31mError → Map isn't surrounded by walls!\n");
+			ft_printf("\033[0;31mError → Map isn't surrounded by walls.\n");
 			return (0);
 		}
 		j++;
@@ -56,7 +56,7 @@ static int	map_wall_is_valid(char **map)
 	{
 		if (map[i][0] != '1' || map[i][len - 1] != '1')
 		{
-			ft_printf("\033[0;31mError → Map isn't surrounded by walls!\n");
+			ft_printf("\033[0;31mError → Map isn't surrounded by walls.\n");
 			return (0);
 		}
 		i++;
@@ -78,7 +78,7 @@ static int	map_is_correct(char **map)
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C'
 					&& map[i][j] != '0' && map[i][j] != '1')
 			{
-				ft_printf("\033[0;31mError → Map isn't valid! → Check the number of Players, Exits and Collectibles \n");
+				ft_printf("\033[0;31mError → Map has invalid char.\n");
 				return (0);
 			}
 			j++;
@@ -112,9 +112,9 @@ static int	map_is_functional(t_game *game)
 		}
 		i++;
 	}
-	if (game->n_collect == 0 || game->n_player != 1 || game->n_exit == 0)
+	if (game->n_collect != 1 || game->n_player != 1 || game->n_exit != 1)
 	{
-		ft_printf("\033[0;31mError → Map isn't functional!\n");
+		ft_printf("\033[0;31mError → Map has more than 1 Collectible, Exit or Player.\n");
 		return (0);
 	}
 	return (1);

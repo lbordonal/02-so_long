@@ -71,7 +71,6 @@ int	main(int ac, char **av)
 		{
 			if (game.map)
 				free_map(game.map);
-			ft_printf("%s\n", "Error → Invalid map!");
 			exit(1);
 		}
 	}
