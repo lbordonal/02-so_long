@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/10 11:44:12 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:05:46 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
+	//char	**temp_map;
 	void	*img_background;
 	void	*img_wall;
 	void	*img_player;
@@ -64,7 +65,12 @@ char	**read_map(char *path);
 
 /* map.c / map2.c: */
 int		map_checker(t_game *game);
-int		map_has_empty_lines(char **map);
+
+/* int		map_has_empty_lines(t_game *game); */
+void	fill_temp_map(t_game *game, char *path);
+void	player_position(t_game *game);
+int		flood_fill(t_game *game, char **map, int x, int y);
+void	map_has_valid_path(t_game *game, char *path);
 
 /* initialize.c: */
 void	game_init(t_game *game);

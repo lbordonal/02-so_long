@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:23:57 by lbordona          #+#    #+#             */
-/*   Updated: 2023/04/21 18:20:01 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:53:09 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ static int	map_is_functional(t_game *game)
 		}
 		i++;
 	}
-	if (game->n_collect != 1 || game->n_player != 1 || game->n_exit != 1)
+	if (game->n_collect == 0 || game->n_player != 1 || game->n_exit != 1)
 	{
 		ft_printf("\033[0;31mError → Map has invalid number of Collectible, Exit or Player.\n");
 		return (0);
@@ -123,8 +123,8 @@ static int	map_is_functional(t_game *game)
 int	map_checker(t_game *game)
 {
 	if (map_is_rectangular(game->map) && map_wall_is_valid(game->map)
-		&& map_is_correct(game->map) && map_is_functional(game)
-		&& map_has_empty_lines (game->map))
+		&& map_is_correct(game->map) && map_is_functional(game))
+		/* && map_has_empty_lines (game))*/
 		return (1);
 	return (0);
 }
