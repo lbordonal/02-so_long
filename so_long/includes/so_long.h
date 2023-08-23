@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/22 12:18:57 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:51:52 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ char	**read_map(char *path);
 /* map.c / map2.c: */
 int		map_checker(t_game *game);
 
-/* int		map_has_empty_lines(t_game *game); */
+void	ft_check_for_empty_line(char *map);
+void	ft_init_map(char *argv);
 void	fill_temp_map(t_game *game, char *path);
 void	player_position(t_game *game);
 int		flood_fill(t_game *game, char **map, int x, int y);

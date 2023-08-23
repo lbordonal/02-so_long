@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:23:57 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/23 17:27:08 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:40:39 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ int	map_checker(t_game *game)
 {
 	if (map_is_rectangular(game->map) && map_wall_is_valid(game->map)
 		&& map_is_correct(game->map) && map_is_functional(game))
-		/* && map_has_empty_lines (game))*/
 		return (1);
 	return (0);
 }

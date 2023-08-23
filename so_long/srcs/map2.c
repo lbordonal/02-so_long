@@ -6,39 +6,63 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:37:09 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/22 12:01:35 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:52:39 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-//CORRIGIR FUNCAO DO EMPTY LINES
-/* int	map_has_empty_lines(t_game *game)
+void	ft_check_for_empty_line(char *map)
 {
 	int	i;
 
 	i = 0;
-	if (game->map[i][0] == '\n')
+	if (map[0] == '\n')
 	{
 		ft_printf("\033[0;31mError → Map has a empty line at the beginning.\n");
-		return (1);
+		free(map);
+		exit (1);
 	}
-	else if(game->map[ft_strlen(game->map[i]) - 1] == '\n')
+	else if(map[ft_strlen(map) - 1] == '\n')
 	{
 		ft_printf("\033[0;31mError → Map has a empty line at the end.\n");
-		return (1);
+		free(map);
+		exit (1);
 	}
-	while (game->map[i + 1][0])
+	while (map[i + 1])
 	{
-		if (game->map[i][0] == '\n' && game->map[i + 1][0] == '\n')
+		if (map[i] == '\n' && map[i + 1] == '\n')
 		{
 			ft_printf("\033[0;31mError → Map has a empty line at the middle.\n");
-			return (1);
+			free(map);
+			exit (1);
 		}
 		i++;
 	}
-	return (0);
-} */
+}
+
+void	ft_init_map(char *argv)
+{
+	char	*map_temp;
+	char	*line_temp;
+	int		map_fd;
+
+	map_fd = open(argv, O_RDONLY);
+	if (map_fd == -1)
+		ft_printf("\033[0;31mError → Fucked map!\n");
+	map_temp = ft_strdup("");
+	while (1)
+	{
+		line_temp = get_next_line(map_fd);
+		if (line_temp == NULL)
+			break ;
+		map_temp = ft_strappend(&map_temp, line_temp);
+		free(line_temp);
+	}
+	close(map_fd);
+	ft_check_for_empty_line(map_temp);
+	free(map_temp);
+}
 
 void	fill_temp_map(t_game *game, char *path)
 {

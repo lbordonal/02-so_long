@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:20:47 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/22 12:05:24 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:51:57 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	main(int ac, char **av)
 		/* map_has_valid_path(&game, av[1]); */
 		if (map_checker(&game) && map_extension_checker(av[1]))
 		{
+			ft_init_map(av[1]);
 			game_init(&game);
 			game_play(&game);
 			mlx_loop(game.mlx);
