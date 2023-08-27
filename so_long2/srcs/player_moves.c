@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 20:48:19 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 20:48:19 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:29:55 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ void	player_moves(char key, t_game *game)
 	x = game->pos_x;
 	y = game->pos_y;
 	if (key == 'W')
-		if (check_new_position(game, x, y - 1) == 1)
+		if (check_next_position(game, x, y - 1) == 1)
 			move(game, 'W', x, y);
 	if (key == 'A')
-		if (check_new_position(game, x - 1, y) == 1)
+		if (check_next_position(game, x - 1, y) == 1)
 			move(game, 'A', x, y);
 	if (key == 'S')
-		if (check_new_position(game, x, y + 1) == 1)
+		if (check_next_position(game, x, y + 1) == 1)
 			move(game, 'S', x, y);
 	if (key == 'D')
-		if (check_new_position(game, x + 1, y) == 1)
+		if (check_next_position(game, x + 1, y) == 1)
 			move(game, 'D', x, y);
 }

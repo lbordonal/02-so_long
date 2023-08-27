@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:33:32 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 19:33:32 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:24:36 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	handle_keypress(int key, t_game *game)
 void	gameplay(t_game *game)
 {
 	mlx_hook(game->win, KeyPress, KeyPressMask, &handle_keypress, game);
-	mlx_hook(game-win, DestroyNotify, ButtonPressMask, &handle_exit, game);
+	mlx_hook(game->win, DestroyNotify, ButtonPressMask, &handle_exit, game);
 	mlx_loop(game->mlx);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:58:08 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 12:58:08 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:25:25 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	draw_img(t_game *game, void *img, int x, int y);
 void	draw_map(t_game *game);
 
 /* free.c: */
-void	free_map(char **map);
+void	free_map(char **map, t_game *game);
 void	exit_game(t_game *game);
 
 /* game_and_events.c: */
@@ -94,6 +94,7 @@ void	gameplay(t_game *game);
 void	start_game(t_game *game);
 
 /* initialize.c: */
+void	init_struct(t_game *game);
 void	init_map(char *av, t_game *game);
 void	init_temp_map(char *av, t_game *game);
 void	init_imgs(t_game *game);
