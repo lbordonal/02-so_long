@@ -25,6 +25,9 @@
 # define COLLECTIBLE 'C'
 # define WALL '1'
 # define BACKGROUND '0'
+# define SIZE 32
+# define HEIGHT 32
+# define WIDTH 32
 
 /* Define images: */
 # define PLAYER_W "./assets/images/PW.xpm"
@@ -60,7 +63,7 @@ typedef struct s_game
 	void	*img_wall;
 	void	*img_background;
 	char	**map;
-	char	**check_map;
+	char	**temp_map;
 	int		img_width;
 	int		img_height;
 	int		map_rows;
@@ -70,12 +73,61 @@ typedef struct s_game
 	int		pos_y;
 	int		exit;
 	int		collect;
-	int		n_collect;
+	int		collected;
 	int		wall;
 	int		background;
 	int		moves;
 }	t_game;
 
-/* Functions: */
+/* draw.c: */
+void	draw_img(t_game *game, void *img, int x, int y);
+void	draw_map(t_game *game);
+
+/* free.c: */
+void	free_map(char **map);
+void	exit_game(t_game *game);
+
+/* game_and_events.c: */
+int		handle_exit(t_game *game);
+int		handle_keypress(int key, t_game *game);
+void	gameplay(t_game *game);
+void	start_game(t_game *game);
+
+/* initialize.c: */
+void	init_map(char *av, t_game *game);
+void	init_temp_map(char *av, t_game *game);
+void	init_imgs(t_game *game);
+
+/* map_checker.c: */
+void	check_map_struct(t_game *game);
+void	check_map_empty_lines(t_game *game);
+void	check_map_path(char *av, t_game *game);
+void	full_map_checker(char *av, t_game *game);
+
+/* map_checker_structs.c: */
+int		map_is_rectangular(char **map);
+int		map_wall_is_valid(char **map);
+int		map_is_correct(char **map);
+int		map_is_functional(t_game *game);
+
+/* player_moves.c: */
+int		check_next_position(t_game *game, int x, int y);
+void	player_new_position(t_game *game, int x, int y);
+void	move(t_game *game, char key, int x, int y);
+void	player_moves(char key, t_game *game);
+
+/*player_moves_2.c: */
+void	player_move_w(t_game *game, int new_x, int new_y);
+void	player_move_a(t_game *game, int new_x, int new_y);
+void	player_move_s(t_game *game, int new_x, int new_y);
+void	player_move_d(t_game *game, int new_x, int new_y);
+
+
+/* utils.c: */
+int		count_lines(char *av);
+int		count_cols(char *line);
+void	player_position(t_game *game);
+int		flood_fill(t_game *game, char **map, int x, int y);
+
 
 #endif

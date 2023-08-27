@@ -20,16 +20,18 @@ RM = rm -rf
 LIBFT = ./libft/libft.a
 MINILIBX = ./minilibx-linux/libmlx.a
 
-SRCS = srcs/main.c \
-	srcs/events.c \
-	srcs/map.c \
-	srcs/map2.c \
+SRCS = srcs/draw.c \
+	srcs/free.c \
+	srcs/game_and_events.c \
 	srcs/initialize.c \
-	srcs/draw.c \
-	srcs/exit_and_free.c \
-	srcs/player_moves.c
+	srcs/main.c \
+	srcs/map_checker.c \
+	srcs/map_checker_structs.c \
+	srcs/player_moves.c \
+	srcs/player_moves_2.c \
+	srcs/utils.c
 
-SRCS_BONUS = srcs_bonus/main.c \
+#SRCS_BONUS = srcs_bonus/main.c \
 	srcs_bonus/events.c \
 	srcs_bonus/map.c \
 	srcs_bonus/initialize.c \
