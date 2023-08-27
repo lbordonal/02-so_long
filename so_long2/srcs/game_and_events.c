@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:33:32 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 21:24:36 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/27 21:36:47 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	start_game(t_game *game)
 	rows = game->map_rows * SIZE;
 	cols = game->map_cols * SIZE;
 	game->mlx = mlx_init();
+	init_imgs(game);
 	game->win = mlx_new_window(game->mlx, cols, rows,
 		"so_long - miranha em busca do miojinho");
 	draw_map(game);
