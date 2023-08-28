@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:52:14 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 19:23:51 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:17:28 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	collectible_animation(t_game *game, int flag)
 		j = 0;
 		while (j < game->map_cols)
 		{
-			if (game->map[i][j] == COLLECTIBLE)
+			if (game->map[i][j] == 'C')
 				change_collectible(game, j, i, flag);
 			j++;
 		}

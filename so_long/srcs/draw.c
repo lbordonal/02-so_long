@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:00:04 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 19:00:04 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:14:09 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ void	draw_map(t_game *game)
 		x = 0;
 		while (x < game->map_cols)
 		{
-			if (game->map[y][x] == PLAYER)
+			if (game->map[y][x] == 'P')
 				draw_img(game, game->img_player_d, x, y);
-			else if (game->map[y][x] == EXIT)
+			else if (game->map[y][x] == 'E')
 				draw_img(game, game->img_exit, x, y);
-			else if (game->map[y][x] == COLLECTIBLE)
+			else if (game->map[y][x] == 'C')
 				draw_img(game, game->img_collect, x, y);
-			else if (game->map[y][x] == WALL)
+			else if (game->map[y][x] == '1')
 				draw_img(game, game->img_wall, x, y);
-			else if (game->map[y][x] == BACKGROUND)
+			else if (game->map[y][x] == '0')
 				draw_img(game, game->img_background, x, y);
 			x++;
 		}

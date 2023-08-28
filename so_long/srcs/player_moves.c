@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 20:48:19 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:18:17 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:15:39 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void	player_new_position(t_game *game, int x, int y)
 
 int	check_next_position(t_game *game, int x, int y)
 {
-	if (game->map[y][x] == BACKGROUND)
+	if (game->map[y][x] == '0')
 		return (1);
-	if (game->map[y][x] == WALL)
+	if (game->map[y][x] == '1')
 		return (0);
-	if (game->map[y][x] == COLLECTIBLE)
+	if (game->map[y][x] == 'C')
 	{
 		game->collected++;
 		return (1);
 	}
-	if (game->map[y][x] == EXIT && (game->collected != game->collect))
+	if (game->map[y][x] == 'E' && (game->collected != game->collect))
 		return (0);
-	if (game->map[y][x] == EXIT && (game->collected == game->collect))
+	if (game->map[y][x] == 'E' && (game->collected == game->collect))
 	{
 		ft_printf("\033[0;32mYOU HELPED THOR TO SAVE THE WORLD FROM THANOS!\n");
 		exit_game(game);
@@ -45,25 +45,25 @@ void	move(t_game *game, char key, int x, int y)
 	{
 		player_move_w(game, x, (y - 1));
 		player_new_position(game, x, y - 1);
-		game->map[y][x] = BACKGROUND;
+		game->map[y][x] = '0';
 	}
 	if (key == 'A')
 	{
 		player_move_a(game, (x - 1), y);
 		player_new_position(game, (x - 1), y);
-		game->map[y][x] = BACKGROUND;
+		game->map[y][x] = '0';
 	}
 	if (key == 'S')
 	{
 		player_move_s(game, x, (y + 1));
 		player_new_position(game, x, (y + 1));
-		game->map[y][x] = BACKGROUND;
+		game->map[y][x] = '0';
 	}
 	if (key == 'D')
 	{
 		player_move_d(game, (x + 1), y);
 		player_new_position(game, (x + 1), y);
-		game->map[y][x] = BACKGROUND;
+		game->map[y][x] = '0';
 	}
 }
 

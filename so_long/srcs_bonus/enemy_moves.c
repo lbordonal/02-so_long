@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 11:24:45 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 19:25:00 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:19:15 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ void	random_move(t_game *game)
 
 int	check_next_window(t_game *game, int x, int y)
 {
-	if (game->map[y][x] == BACKGROUND)
+	if (game->map[y][x] == '0')
 		return (1);
-	if (game->map[y][x] == WALL)
+	if (game->map[y][x] == '1')
 		return (0);
-	if (game->map[y][x] == COLLECTIBLE)
+	if (game->map[y][x] == 'C')
 		return (0);
-	if (game->map[y][x] == ENEMY)
+	if (game->map[y][x] == 'T')
 		return (0);
-	if (game->map[y][x] == PLAYER)
+	if (game->map[y][x] == 'P')
 	{
 		ft_printf("\033[0;31mYOU WERE VANISHED BY THANOS!\n");
 		exit_game(game);
@@ -49,7 +49,7 @@ int	enemy_position(t_game *game, int random_move)
 		j = 0;
 		while (j < game->map_cols)
 		{
-			if (game->map[i][j] == ENEMY)
+			if (game->map[i][j] == 'T')
 			{
 				enemy_move(game, j, i, random_move);
 				if (random_move == 3)

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:58:08 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 19:44:15 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:20:50 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 # include <X11/keysym.h>
 
 /* Define parameters: */
-# define PLAYER 'P'
-# define EXIT 'E'
-# define COLLECTIBLE 'C'
-# define WALL '1'
-# define BACKGROUND '0'
-# define ENEMY 'T'
 # define SIZE 32
 # define HEIGHT 32
 # define WIDTH 32
@@ -147,12 +141,10 @@ void	player_move_s(t_game *game, int new_x, int new_y);
 void	player_move_d(t_game *game, int new_x, int new_y);
 void	update_moves(t_game *game);
 
-
 /* utils_bonus.c: */
 int		count_lines(char *av);
 int		count_cols(char *line);
 void	player_position(t_game *game);
 int		flood_fill(t_game *game, char **map, int x, int y);
-
 
 #endif

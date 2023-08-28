@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:41:35 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 10:04:49 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:20:37 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ int	flood_fill(t_game *game, char **map, int x, int y)
 	if (y < 0 || x < 0 || y > game->map_rows || x > game->map_cols
 		|| map[y][x] == '1' || map[y][x] == 'X')
 		return (0);
-	if (map[y][x] == EXIT)
+	if (map[y][x] == 'E')
 	{
 		exits++;
 		map[y][x] = 'X';
 		return (0);
 	}
-	if (map[y][x] == COLLECTIBLE)
+	if (map[y][x] == 'C')
 		collects++;
 	map[y][x] = 'X';
 	flood_fill(game, map, x + 1, y);
