@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:33:32 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 13:05:04 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:54:25 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	gameplay(t_game *game)
 {
 	mlx_hook(game->win, KeyPress, KeyPressMask, &handle_keypress, game);
 	mlx_hook(game->win, DestroyNotify, ButtonPressMask, &handle_exit, game);
-	mlx_loop_hook(game->mlx, animations, game);
 	mlx_loop(game->mlx);
 }
 
@@ -50,9 +49,9 @@ void	start_game(t_game *game)
 	cols = game->map_cols * SIZE;
 	game->mlx = mlx_init();
 	init_imgs(game);
-	init_enemy_imgs(game);
 	game->win = mlx_new_window(game->mlx, cols, rows,
 		"so_long - miranha em busca do miojinho");
 	draw_map(game);
 	gameplay(game);
+	mlx_loop_hook(game->mlx, animations, game);
 }

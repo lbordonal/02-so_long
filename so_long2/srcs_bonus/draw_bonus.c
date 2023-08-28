@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:00:04 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 13:07:40 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:56:26 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 void	draw_img(t_game *game, void *img, int x, int y)
 {
 	x *= SIZE;
-	y *= SIZE + SIZE;
+	y *= SIZE;
 	mlx_put_image_to_window(game->mlx, game->win, img, x, y);
 }
 
@@ -51,7 +51,7 @@ void	draw_map(t_game *game)
 			else if (game->map[y][x] == BACKGROUND)
 				draw_img(game, game->img_background, x, y);
 			else if (game->map[y][x] == ENEMY)
-				draw_img(game, game->img_enemy_a, x, y);
+				draw_img(game, game->img_enemy, x, y);
 			x++;
 		}
 		y++;
@@ -60,6 +60,5 @@ void	draw_map(t_game *game)
 		10, 15, 000000, "Moves:  ");
 	mlx_string_put(game->mlx, game->win,
 		50, 15, 000000,"0");
-	//show_moves(game);
 }
 

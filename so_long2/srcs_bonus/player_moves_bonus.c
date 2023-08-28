@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 20:48:19 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 10:04:51 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:54:19 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	player_new_position(t_game *game, int x, int y)
 {
 	game->pos_x = x;
 	game->pos_y = y;
+	game->map[game->pos_y][game->pos_x] = PLAYER;
 }
 
 int		check_next_position(t_game *game, int x, int y)
@@ -34,6 +35,11 @@ int		check_next_position(t_game *game, int x, int y)
 	if (game->map[y][x] == EXIT && (game->collected == game->collect))
 	{
 		ft_printf("\033[0;32mYOU HELPED THOR TO SAVE THE WORLD FROM THANOS!\n");
+		exit_game(game);
+	}
+	if (game->map[y][x] == ENEMY)
+	{
+		ft_printf("\033[0;31mYOU WERE VANISHED BY THANOS!\n");
 		exit_game(game);
 	}
 	return (0);

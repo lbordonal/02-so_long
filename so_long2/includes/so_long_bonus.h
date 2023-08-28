@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:58:08 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 13:04:45 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:45:26 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,10 @@
 # define PLAYER_D "./assets/images/PD.xpm"
 # define EXIT_IMG "./assets/images/E.xpm"
 # define COLLECT_IMG "./assets/images/C.xpm"
+# define COLLECT2_IMG "./assets/images/C2.xpm"
 # define WALL_IMG "./assets/images/1.xpm"
 # define BACKGROUND_IMG "./assets/images/0.xpm"
-# define ENEMY_W "./assets/images/ENW.xpm"
-# define ENEMY_A "./assets/images/ENA.xpm"
-# define ENEMY_S "./assets/images/ENS.xpm"
-# define ENEMY_D "./assets/images/END.xpm"
+# define ENEMY_IMG "./assets/images/ENA.xpm"
 
 /* Define keys: */
 # define W 119
@@ -65,12 +63,10 @@ typedef struct s_game
 	void	*img_player_d;
 	void	*img_exit;
 	void	*img_collect;
+	void	*img_collect2;
 	void	*img_wall;
 	void	*img_background;
-	void	*img_enemy_w;
-	void	*img_enemy_a;
-	void	*img_enemy_s;
-	void	*img_enemy_d;
+	void	*img_enemy;
 	char	**map;
 	char	**temp_map;
 	int		img_width;
@@ -94,7 +90,6 @@ void	enemy_animation(t_game *game, int flag);
 int		animations(t_game *game);
 
 /* draw_bonus.c: */
-//void	show_moves(t_game *game);
 void	draw_img(t_game *game, void *img, int x, int y);
 void	draw_map(t_game *game);
 
@@ -125,7 +120,6 @@ void	init_struct(t_game *game);
 void	init_map(char *av, t_game *game);
 void	init_temp_map(char *av, t_game *game);
 void	init_imgs(t_game *game);
-void	init_enemy_imgs(t_game *game);
 
 /* map_checker_bonus.c: */
 void	check_map_struct(t_game *game);

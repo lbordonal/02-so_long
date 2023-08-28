@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:47:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:04:29 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 14:30:16 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ void	init_struct(t_game *game)
 	game->img_player_d = 0;
 	game->img_exit = 0;
 	game->img_collect = 0;
+	game->img_collect2 = 0;
 	game->img_wall = 0;
 	game->img_background = 0;
-	game->img_enemy_w = 0;
-	game->img_enemy_a = 0;
-	game->img_enemy_s = 0;
-	game->img_enemy_d = 0;
+	game->img_enemy = 0;
 	game->map = 0;
 	game->temp_map = 0;
 	game->img_width = 32;
@@ -120,22 +118,6 @@ void	init_imgs(t_game *game)
 		(game->mlx, WALL_IMG, w, h);
 	game->img_background = mlx_xpm_file_to_image
 		(game->mlx, BACKGROUND_IMG, w, h);
+	game->img_enemy = mlx_xpm_file_to_image
+		(game->mlx, ENEMY_IMG, w, h);
 }
-
-void	init_enemy_imgs(t_game *game)
-{
-	int *w;
-	int *h;
-
-	w = &game->img_width;
-	h = &game->img_height;
-	game->img_enemy_w = mlx_xpm_file_to_image
-		(game->mlx, ENEMY_W, w, h);
-	game->img_enemy_a = mlx_xpm_file_to_image
-		(game->mlx, ENEMY_A, w, h);
-	game->img_enemy_s = mlx_xpm_file_to_image
-		(game->mlx, ENEMY_S, w, h);
-	game->img_enemy_d = mlx_xpm_file_to_image
-		(game->mlx, ENEMY_D, w, h);
-}
-
