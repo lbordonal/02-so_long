@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:52:14 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 14:39:28 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:52:57 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,4 @@ void	collect_animation(t_game *game, int flag)
 		}
 		i++;
 	}
-}
-
-int	animations(t_game *game)
-{
-	static int	i;
-	int			num;
-
-	num = 10000;
-	i++;
-	if (i == num * 2)
-		collect_animation(game, 0);
-	if (i == num * 3)
-		enemy_random_move(game);
-	if (i == num * 4)
-	{
-		collect_animation(game, 1);
-		i = 0;
-	}
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:47:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 14:30:16 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:48:02 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	init_imgs(t_game *game)
 		(game->mlx, EXIT_IMG, w, h);
 	game->img_collect = mlx_xpm_file_to_image
 		(game->mlx, COLLECT_IMG, w, h);
+	game->img_collect2 = mlx_xpm_file_to_image
+		(game->mlx, COLLECT2_IMG, w, h);
 	game->img_wall = mlx_xpm_file_to_image
 		(game->mlx, WALL_IMG, w, h);
 	game->img_background = mlx_xpm_file_to_image

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 11:24:45 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:58:09 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:58:06 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	enemy_position(t_game *game, int random_move)
 		{
 			if (game->map[i][j] == ENEMY)
 			{
-				enemy_move(game, i, j, random_move);
+				enemy_move(game, j, i, random_move);
 				if (random_move == 3)
 					j++;
 				if (random_move == 2)

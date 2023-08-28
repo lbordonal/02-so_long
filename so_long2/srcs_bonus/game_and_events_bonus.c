@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:33:32 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 14:54:25 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:52:41 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,31 @@ int	handle_keypress(int key, t_game *game)
 	return (0);
 }
 
+int	animations(t_game *game)
+{
+	int	i;
+	int	num;
+
+	i = 0;
+	num = 20000;
+	i++;
+	if (i == num * 2)
+		collect_animation(game, 0);
+	if (i == num * 3)
+		enemy_random_move(game);
+	if (i == num * 4)
+	{
+		collect_animation(game, 1);
+		i = 0;
+	}
+	return (1);
+}
+
 void	gameplay(t_game *game)
 {
 	mlx_hook(game->win, KeyPress, KeyPressMask, &handle_keypress, game);
 	mlx_hook(game->win, DestroyNotify, ButtonPressMask, &handle_exit, game);
+	mlx_loop_hook(game->mlx, &animations, game);
 	mlx_loop(game->mlx);
 }
 
@@ -50,8 +71,7 @@ void	start_game(t_game *game)
 	game->mlx = mlx_init();
 	init_imgs(game);
 	game->win = mlx_new_window(game->mlx, cols, rows,
-		"so_long - miranha em busca do miojinho");
+		"so_long_bonus - miranha em busca do miojinho");
 	draw_map(game);
 	gameplay(game);
-	mlx_loop_hook(game->mlx, animations, game);
 }
