@@ -6,13 +6,13 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:00:04 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:06:16 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:07:40 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void	show_moves(t_game *game)
+/* void	show_moves(t_game *game)
 {
 	char	*moves;
 
@@ -20,7 +20,7 @@ void	show_moves(t_game *game)
 	mlx_string_put(game->mlx, game->win, 25, 20, 0xFFFFFF, "Moves: ");
 	mlx_string_put(game->mlx, game->win, 70, 20, 0xFFFFFF, moves);
 	free(moves);
-}
+} */
 
 void	draw_img(t_game *game, void *img, int x, int y)
 {
@@ -56,12 +56,10 @@ void	draw_map(t_game *game)
 		}
 		y++;
 	}
-	show_moves(game);
+	mlx_string_put(game->mlx, game->win,
+		10, 15, 000000, "Moves:  ");
+	mlx_string_put(game->mlx, game->win,
+		50, 15, 000000,"0");
+	//show_moves(game);
 }
 
-
-/* 	mlx_string_put(
-		stack->mlx_ptr, stack->window_ptr, 10, 15, 000000, "Moves:  ");
-	mlx_string_put(
-		stack->mlx_ptr, stack->window_ptr, 50, 15, 000000,"0");
-} */

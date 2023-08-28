@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:58:08 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:11:35 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:04:45 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,11 @@ typedef struct s_game
 
 /* animation_bonus.c: */
 void	change_enemy_img(t_game *game, int x, int y, int flag);
-void	enemy_animation(t_game *game, int flag)
-int		animation(t_game *game);
+void	enemy_animation(t_game *game, int flag);
+int		animations(t_game *game);
 
 /* draw_bonus.c: */
-void	show_moves(t_game *game);
+//void	show_moves(t_game *game);
 void	draw_img(t_game *game, void *img, int x, int y);
 void	draw_map(t_game *game);
 

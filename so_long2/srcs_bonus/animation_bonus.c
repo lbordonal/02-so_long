@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:52:14 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:06:20 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:56:16 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	enemy_animation(t_game *game, int flag)
 	}
 }
 
-int	animation(t_game *game)
+int	animations(t_game *game)
 {
 	static int	i;
 	int			num;

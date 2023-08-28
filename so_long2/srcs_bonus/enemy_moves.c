@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 11:24:45 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:08:04 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:58:09 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,23 @@ int	enemy_position(t_game *game, int random_move)
 void	enemy_move(t_game *game, int x, int y, int random_move)
 {
 	if (random_move == 0)
+	{
 		if (check_next_position_2(game, x, (y - 1)) == 1)
 			enemy_move_w(game, x, y);
+	}
 	else if(random_move == 1)
+	{
 		if (check_next_position_2(game, (x - 1), y) == 1)
 			enemy_move_a(game, x, y);
+	}
 	else if (random_move == 2)
+	{
 		if (check_next_position_2(game, x, (y + 1)) == 1)
 			enemy_move_s(game, x, y);
+	}
 	else if(random_move == 3)
+	{
 		if (check_next_position_2(game, (x + 1), y) == 1)
 			enemy_move_d(game, x, y);
+	}
 }

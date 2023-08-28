@@ -6,7 +6,7 @@
 #    By: lbordona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/22 12:24:12 by lbordona          #+#    #+#              #
-#    Updated: 2023/08/28 10:04:47 by lbordona         ###   ########.fr        #
+#    Updated: 2023/08/28 12:45:05 by lbordona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,16 +31,19 @@ SRCS = srcs/draw.c \
 	srcs/player_moves_2.c \
 	srcs/utils.c
 
-SRCS_BONUS = srcs/draw_bonus.c \
-	srcs/free_bonus.c \
-	srcs/game_and_events_bonus.c \
-	srcs/initialize_bonus.c \
-	srcs/main_bonus.c \
-	srcs/map_checker_bonus.c \
-	srcs/map_checker_structs_bonus.c \
-	srcs/player_moves_bonus.c \
-	srcs/player_moves_2_bonus.c \
-	srcs/utils_bonus.c
+SRCS_BONUS = srcs_bonus/animation_bonus.c \
+	srcs_bonus/draw_bonus.c \
+	srcs_bonus/enemy_moves.c \
+	srcs_bonus/enemy_moves_2.c \
+	srcs_bonus/free_bonus.c \
+	srcs_bonus/game_and_events_bonus.c \
+	srcs_bonus/initialize_bonus.c \
+	srcs_bonus/main_bonus.c \
+	srcs_bonus/map_checker_bonus.c \
+	srcs_bonus/map_checker_structs_bonus.c \
+	srcs_bonus/player_moves_bonus.c \
+	srcs_bonus/player_moves_2_bonus.c \
+	srcs_bonus/utils_bonus.c
 
 OBJS = $(SRCS:%.c=%.o)
 OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
