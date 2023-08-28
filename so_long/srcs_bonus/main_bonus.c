@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 13:08:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 21:31:39 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 18:54:55 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 static int	map_extension_checker(char *map)
 {
@@ -53,6 +53,8 @@ int	main(int ac, char **av)
 	t_game	game;
 
 	verify(ac, av);
+	game.mlx = 0;
+	game.win = 0;
 	init_struct(&game);
 	full_map_checker(av[1], &game);
 	start_game(&game);

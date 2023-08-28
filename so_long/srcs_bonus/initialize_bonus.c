@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   initialize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:47:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:16:47 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:48:02 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	init_struct(t_game *game)
 {
@@ -22,8 +22,10 @@ void	init_struct(t_game *game)
 	game->img_player_d = 0;
 	game->img_exit = 0;
 	game->img_collect = 0;
+	game->img_collect2 = 0;
 	game->img_wall = 0;
 	game->img_background = 0;
+	game->img_enemy = 0;
 	game->map = 0;
 	game->temp_map = 0;
 	game->img_width = 32;
@@ -95,8 +97,8 @@ void	init_temp_map(char *av, t_game *game)
 
 void	init_imgs(t_game *game)
 {
-	int	*w;
-	int	*h;
+	int *w;
+	int *h;
 
 	w = &game->img_width;
 	h = &game->img_height;
@@ -112,8 +114,12 @@ void	init_imgs(t_game *game)
 		(game->mlx, EXIT_IMG, w, h);
 	game->img_collect = mlx_xpm_file_to_image
 		(game->mlx, COLLECT_IMG, w, h);
+	game->img_collect2 = mlx_xpm_file_to_image
+		(game->mlx, COLLECT2_IMG, w, h);
 	game->img_wall = mlx_xpm_file_to_image
 		(game->mlx, WALL_IMG, w, h);
 	game->img_background = mlx_xpm_file_to_image
 		(game->mlx, BACKGROUND_IMG, w, h);
+	game->img_enemy = mlx_xpm_file_to_image
+		(game->mlx, ENEMY_IMG, w, h);
 }

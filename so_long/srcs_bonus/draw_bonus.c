@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:00:04 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 19:00:04 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:36:37 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
+
+void	show_moves(t_game *game)
+{
+	char	*moves;
+
+	moves = ft_itoa(game->moves);
+	mlx_string_put(game->mlx, game->win, 10, 15, 0xFFFFFF, "Moves: ");
+	mlx_string_put(game->mlx, game->win, 50, 15, 0xFFFFFF, "0");
+	free(moves);
+}
 
 void	draw_img(t_game *game, void *img, int x, int y)
 {
@@ -40,8 +50,12 @@ void	draw_map(t_game *game)
 				draw_img(game, game->img_wall, x, y);
 			else if (game->map[y][x] == BACKGROUND)
 				draw_img(game, game->img_background, x, y);
+			else if (game->map[y][x] == ENEMY)
+				draw_img(game, game->img_enemy, x, y);
 			x++;
 		}
 		y++;
+		show_moves(game);
 	}
 }
+

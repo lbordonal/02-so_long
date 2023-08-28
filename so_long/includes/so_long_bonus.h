@@ -5,32 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 12:31:51 by lbordona          #+#    #+#             */
-/*   Updated: 2023/06/10 11:44:13 by lbordona         ###   ########.fr       */
+/*   Created: 2023/08/27 12:58:08 by lbordona          #+#    #+#             */
+/*   Updated: 2023/08/28 19:27:12 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
+/* Includes: */
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-# define BACKGROUND "./assets/images/0.xpm"
-# define WALL "./assets/images/1.xpm"
+/* Define parameters: */
+# define PLAYER 'P'
+# define EXIT 'E'
+# define COLLECTIBLE 'C'
+# define WALL '1'
+# define BACKGROUND '0'
+# define ENEMY 'T'
+# define SIZE 32
+# define HEIGHT 32
+# define WIDTH 32
+
+/* Define images: */
 # define PLAYER_W "./assets/images/PW.xpm"
 # define PLAYER_S "./assets/images/PS.xpm"
 # define PLAYER_A "./assets/images/PA.xpm"
 # define PLAYER_D "./assets/images/PD.xpm"
-# define COLLECT "./assets/images/C.xpm"
 # define EXIT_IMG "./assets/images/E.xpm"
-# define EXIT_IMG2 "./assets/images/E2.xpm"
-# define ENEMY_W "./assets/images/ENW.xpm"
-# define ENEMY_S "./assets/images/ENS.xpm"
-# define ENEMY_A "./assets/images/ENA.xpm"
-# define ENEMY_D "./assets/images/END.xpm"
+# define COLLECT_IMG "./assets/images/C.xpm"
+# define COLLECT2_IMG "./assets/images/C2.xpm"
+# define WALL_IMG "./assets/images/1.xpm"
+# define BACKGROUND_IMG "./assets/images/0.xpm"
+# define ENEMY_IMG "./assets/images/ENA.xpm"
+
+/* Define keys: */
 # define W 119
 # define A 97
 # define S 115
@@ -40,64 +52,107 @@
 # define DOWN 65364
 # define RIGHT 65363
 
+/* Game structure: */
 typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
-	char	**map;
-	void	*img_background;
-	void	*img_wall;
-	void	*img_player;
-	void	*img_enemy;
-	void	*img_collect;
+	void	*img_player_w;
+	void	*img_player_a;
+	void	*img_player_s;
+	void	*img_player_d;
 	void	*img_exit;
-	int		map_width;
-	int		map_height;
+	void	*img_collect;
+	void	*img_collect2;
+	void	*img_wall;
+	void	*img_background;
+	void	*img_enemy;
+	char	**map;
+	char	**temp_map;
 	int		img_width;
 	int		img_height;
-	int		n_collect;
-	int		n_player;
-	int		n_exit;
-	int		player_x;
-	int		player_y;
+	int		map_rows;
+	int		map_cols;
+	int		player;
+	int		pos_x;
+	int		pos_y;
+	int		exit;
+	int		collect;
+	int		collected;
+	int		wall;
+	int		background;
 	int		moves;
-	int		pos_enemies;
-	int		loop;
-	int		endgame;
 }	t_game;
 
-/* main.c: */
-char	**read_map(char *path);
+/* animation_bonus.c: */
+void	change_collectible(t_game *game, int x, int y, int flag);
+void	collectible_animation(t_game *game, int flag);
 
-/* map.c: */
-int		map_checker(t_game *game);
-
-/* initialize.c: */
-void	game_init(t_game *game);
-void	size_window_init(t_game *game);
-void	imgs_init(t_game *game);
-
-/* player_moves.c: */
-void	player_move_w(t_game *game);
-void	player_move_a(t_game *game);
-void	player_move_s(t_game *game);
-void	player_move_d(t_game *game);
-
-/* player_moves_2.c: */
+/* draw_bonus.c: */
 void	show_moves(t_game *game);
-void	you_saved_the_world(t_game *game);
-void	you_are_vanished(t_game *game);
-int		animation(t_game *game);
-
-/* draw.c: */
 void	draw_img(t_game *game, void *img, int x, int y);
-int		draw_map(t_game *game);
+void	draw_map(t_game *game);
 
-/* events.c: */
-void	game_play(t_game *game);
+/* enemy_moves.c: */
+void	random_move(t_game *game);
+int		check_next_window(t_game *game, int x, int y);
+int		enemy_position(t_game *game, int random_move);
+void	enemy_move(t_game *game, int x, int y, int random_move);
+int		animations(t_game *game);
 
-/* exit_and_free.c: */
-void	free_map(char **map);
-int		exit_game(t_game *game);
+/* enemy_moves_2.c: */
+void	change_enemy_image_w(t_game *game, int x, int y);
+void	change_enemy_image_a(t_game *game, int x, int y);
+void	change_enemy_image_s(t_game *game, int x, int y);
+void	change_enemy_image_d(t_game *game, int x, int y);
+
+/* free_bonus.c: */
+void	free_map(char **map, t_game *game);
+void	exit_game(t_game *game);
+
+/* game_and_events_bonus.c: */
+int		handle_exit(t_game *game);
+int		handle_keypress(int key, t_game *game);
+void	gameplay(t_game *game);
+void	start_game(t_game *game);
+
+/* initialize_bonus.c: */
+void	init_struct(t_game *game);
+void	init_map(char *av, t_game *game);
+void	init_temp_map(char *av, t_game *game);
+void	init_imgs(t_game *game);
+
+/* map_checker_bonus.c: */
+void	check_map_struct(t_game *game);
+void	check_map_empty_lines(t_game *game);
+void	check_map_path(char *av, t_game *game);
+void	full_map_checker(char *av, t_game *game);
+
+/* map_checker_structs_bonus.c: */
+int		map_is_rectangular(char **map);
+int		map_wall_is_valid(char **map);
+int		map_is_correct(char **map);
+int		map_is_functional(t_game *game);
+
+/* player_moves_bonus.c: */
+int		check_next_position(t_game *game, int x, int y);
+void	player_new_position(t_game *game, int x, int y);
+void	move(t_game *game, char key, int x, int y);
+void	player_moves(char key, t_game *game);
+
+/*player_moves_2_bonus.c: */
+void	player_move_w(t_game *game, int new_x, int new_y);
+void	player_move_a(t_game *game, int new_x, int new_y);
+void	player_move_s(t_game *game, int new_x, int new_y);
+void	player_move_d(t_game *game, int new_x, int new_y);
+void	update_moves(t_game *game);
+
+
+/* utils_bonus.c: */
+int		count_lines(char *av);
+int		count_cols(char *line);
+void	player_position(t_game *game);
+int		flood_fill(t_game *game, char **map, int x, int y);
+
 
 #endif
