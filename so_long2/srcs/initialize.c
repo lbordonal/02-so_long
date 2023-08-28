@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:47:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 21:27:09 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:16:47 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void	init_temp_map(char *av, t_game *game)
 
 void	init_imgs(t_game *game)
 {
-	int *w;
-	int *h;
+	int	*w;
+	int	*h;
 
 	w = &game->img_width;
 	h = &game->img_height;
@@ -117,4 +117,3 @@ void	init_imgs(t_game *game)
 	game->img_background = mlx_xpm_file_to_image
 		(game->mlx, BACKGROUND_IMG, w, h);
 }
-

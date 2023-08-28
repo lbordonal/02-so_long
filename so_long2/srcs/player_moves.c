@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 20:48:19 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/27 21:29:55 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:18:17 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	player_new_position(t_game *game, int x, int y)
 	game->pos_y = y;
 }
 
-int		check_next_position(t_game *game, int x, int y)
+int	check_next_position(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == BACKGROUND)
 		return (1);
@@ -56,7 +56,7 @@ void	move(t_game *game, char key, int x, int y)
 	if (key == 'S')
 	{
 		player_move_s(game, x, (y + 1));
-		player_new_position(game, x,(y + 1));
+		player_new_position(game, x, (y + 1));
 		game->map[y][x] = BACKGROUND;
 	}
 	if (key == 'D')
@@ -65,7 +65,6 @@ void	move(t_game *game, char key, int x, int y)
 		player_new_position(game, (x + 1), y);
 		game->map[y][x] = BACKGROUND;
 	}
-
 }
 
 void	player_moves(char key, t_game *game)
