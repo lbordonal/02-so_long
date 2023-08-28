@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 19:00:04 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 17:36:37 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:44:21 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,8 @@ void	draw_img(t_game *game, void *img, int x, int y)
 	mlx_put_image_to_window(game->mlx, game->win, img, x, y);
 }
 
-void	draw_map(t_game *game)
+void	draw_map(t_game *game, int x, int y)
 {
-	int	x;
-	int	y;
-
-	y = 0;
 	while (y < game->map_rows)
 	{
 		x = 0;
@@ -58,4 +54,3 @@ void	draw_map(t_game *game)
 		show_moves(game);
 	}
 }
-

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 16:28:05 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 12:16:09 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:39:09 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,36 +58,5 @@ void	full_map_checker(char *av, t_game *game)
 	init_map(av, game);
 	game->map_cols = count_cols(game->map[0]);
 	check_map_struct(game);
-	/* check_map_empty_lines(game); */
 	check_map_path(av, game);
 }
-
- /*---------------------------------------------------------------------*/
-/* void	check_map_empty_lines(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	if (game->map[0] == '\n')
-	{
-		ft_printf("\033[0;31mError → Map has a empty line at the beginning.\n");
-		free_map(game->map, game);
-		exit (1);
-	}
-	else if(game->map_cols - 1 == '\n')
-	{
-		ft_printf("\033[0;31mError → Map has a empty line at the end.\n");
-		free_map(game->map, game);
-		exit (1);
-	}
-	while (game->map[i + 1])
-	{
-		if (game->map[i] == '\n' && game->map[i + 1] == '\n')
-		{
-			ft_printf("\033[0;31mError → Map has a empty line at the middle.\n");
-			free_map(game->map, game);
-			exit (1);
-		}
-		i++;
-	}
-} */

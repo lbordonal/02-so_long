@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 12:58:08 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 19:27:12 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:44:15 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	collectible_animation(t_game *game, int flag);
 /* draw_bonus.c: */
 void	show_moves(t_game *game);
 void	draw_img(t_game *game, void *img, int x, int y);
-void	draw_map(t_game *game);
+void	draw_map(t_game *game, int x, int y);
 
 /* enemy_moves.c: */
 void	random_move(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: lbordona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:47:54 by lbordona          #+#    #+#             */
-/*   Updated: 2023/08/28 16:48:02 by lbordona         ###   ########.fr       */
+/*   Updated: 2023/08/28 19:40:35 by lbordona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	init_struct(t_game *game)
 {
-	game->mlx = 0;
-	game->win = 0;
 	game->img_player_w = 0;
 	game->img_player_a = 0;
 	game->img_player_s = 0;
@@ -97,8 +95,8 @@ void	init_temp_map(char *av, t_game *game)
 
 void	init_imgs(t_game *game)
 {
-	int *w;
-	int *h;
+	int	*w;
+	int	*h;
 
 	w = &game->img_width;
 	h = &game->img_height;
