@@ -14,7 +14,7 @@
 This repository contains code developed at 42 Porto for so_long Project, from 17/03/23 to 29/08/23.
 </p>
 
-<img src="https://github.com/lbordonal/lbordonal/blob/main/.42_badges/so_longe.png" align="right" />
+<img src="https://github.com/lbordonal/lbordonal/blob/main/.42_badges/so_longm.png" align="right" />
 <h2>
 	 :notebook: Subject
 </h2>
