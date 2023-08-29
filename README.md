@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/badge/score-not%20submitted-red?style=flat-square" />
+	<img src="https://img.shields.io/badge/score-125%20%2F%20100%20%E2%98%85-9cf?style=flat-square" />
 	<img src="https://img.shields.io/github/languages/code-size/lbordonal/02-so_long?style=flat-square" />
 	<img src="https://img.shields.io/github/languages/count/lbordonal/02-so_long?style=flat-square" />
 	<img src="https://img.shields.io/github/languages/top/lbordonal/02-so_long?style=flat-square" />
@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-This repository contains code developed at 42 Porto for so_long Project, from ... to ...
+This repository contains code developed at 42 Porto for so_long Project, from 17/03/23 to 29/08/23.
 </p>
 
 <img src="https://github.com/lbordonal/lbordonal/blob/main/.42_badges/so_longe.png" align="right" />

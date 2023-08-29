@@ -16,7 +16,7 @@ void	player_new_position(t_game *game, int x, int y)
 {
 	game->pos_x = x;
 	game->pos_y = y;
-	game->map[game->pos_y][game->pos_x] = PLAYER;
+	game->map[game->pos_y][game->pos_x] = 'P';
 }
 
 int	check_next_position(t_game *game, int x, int y)
