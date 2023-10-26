@@ -21,6 +21,20 @@ This repository contains code developed at 42 Porto for so_long Project, from 17
 <a href="https://github.com/lbordonal/02-so_long/blob/main/Subject/en.subject.pdf">Click here</a> for the subject of this project.
 <br /><br />
 
+<h2 align="left">
+	:computer: Usage
+</h2>
+1- Clone this repository: </br>
+<code>git clone https://github.com/lbordonal/02-so_long.git</code> </br></br>
+
+2- Navigate to so_long folder: </br>
+<code>cd 02-so_long/so_long/</code><br /><br />
+
+3- Run with make or make_bonus: </br>
+<code>make</code><br /> or <code>make</code><br /><br />
+
+4- Run so_long with: </br>
+<code>./so_long assets/maps/mandatory/valid_maps/map_name.ber</code> or <code>./so_long_bonus assets/maps/bonus/valid_maps/map_name.ber</code><br /><br />
 
 <br />
 <br />
